@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'license_audit'
+
+LicenseAudit::CLI.start

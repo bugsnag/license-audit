@@ -1,0 +1,79 @@
+---
+- - :whitelist
+  - MIT
+  - :who: CTO
+    :why: Always OK
+    :versions: []
+    :when: 2019-07-02 07:23:26.514774000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who: CTO
+    :why: Always OK
+    :versions: []
+    :when: 2019-07-02 19:58:18.853239000 Z
+- - :whitelist
+  - ISC
+  - :who: CTO
+    :why: Always OK
+    :versions: []
+    :when: 2019-07-04 08:49:37.843141000 Z
+- - :whitelist
+  - BSD
+  - :who: CTO
+    :why: Always OK
+    :versions: []
+    :when: 2019-07-04 09:53:34.654790000 Z
+- - :whitelist
+  - New BSD
+  - :who: Mark
+    :why: Almost unlimited freedom
+    :versions: []
+    :when: 2019-07-04 09:24:13.805592000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who: Mark
+    :why: Almost unlimited freedom
+    :versions: []
+    :when: 2019-07-04 09:24:28.872528000 Z
+- - :whitelist
+  - WTFPL
+  - :who: Mark
+    :why: Almost unlimited freedom
+    :versions: []
+    :when: 2019-07-04 09:37:11.555069000 Z
+- - :whitelist
+  - MIT/X11
+  - :who: Tom
+    :why: 'Alias: MIT'
+    :versions: []
+    :when: 2019-07-04 09:52:26.269207000 Z
+- - :whitelist
+  - "(MIT OR Apache-2.0)"
+  - :who: Tom
+    :why: 'Alias: MIT/Apache'
+    :versions: []
+    :when: 2019-07-04 09:52:26.269207000 Z
+- - :whitelist
+  - BSD-3-Clause OR MIT
+  - :who: Tom
+    :why: 'Alias:New BSD'
+    :versions: []
+    :when: 2019-07-04 09:24:13.805592000 Z
+- - :whitelist
+  - "(MIT AND BSD-3-Clause)"
+  - :who: Tom
+    :why: 'Alias:New BSD'
+    :versions: []
+    :when: 2019-07-04 09:24:13.805592000 Z
+- - :whitelist
+  - "(BSD-2-Clause OR MIT OR Apache-2.0)"
+  - :who: Tom
+    :why: 'Alias:New BSD'
+    :versions: []
+    :when: 2019-07-02 19:58:18.853239000 Z
+- - :whitelist
+  - "(WTFPL OR MIT)"
+  - :who: Tom
+    :why: 'Alias: MIT/WTFPL'
+    :versions: []
+    :when: 2019-07-04 09:37:11.555069000 Z

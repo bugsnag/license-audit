@@ -1,4 +1,7 @@
 apps:
+  license-audit:
+    repo: "bugsnag/license-audit"
+    build-command: "bundle install"
   bugsnag-js:
     repo: "bugsnag/bugsnag-js"
     build-command: "npm install"

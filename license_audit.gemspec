@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 0.55.0"
 
   spec.add_runtime_dependency "thor", "~> 0.19"
-  spec.add_runtime_dependency "colorize", "~> 0.8.1"
+  spec.add_runtime_dependency "rainbow", "~> 3.0.0"
   spec.add_runtime_dependency "parallel", "~> 1.12.0"
   spec.add_runtime_dependency "license_finder", "~> 5.9.2"
   spec.add_runtime_dependency "rake", "~> 12.3.2"

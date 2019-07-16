@@ -2,6 +2,7 @@
 
 require 'thor'
 require 'parallel'
+require 'rainbow'
 
 require 'license_audit/git'
 require 'license_audit/build_repo'
@@ -21,20 +22,20 @@ module LicenseAudit
 
     desc 'run_audit', 'Run the license audit'
     def run_audit
+
       puts 'Running license audit...'
 
-      Parallel.each_with_index(apps, in_processes: 4) do |(_name, app), index|
+      apps.each_with_index do |(name, app), index|
         
-        puts "Running #{app.location} (#{index + 1}/#{apps.length})".yellow
+        puts Rainbow("Running #{app.location} (#{index + 1}/#{apps.length})").underline
 
         unless app.repo_cloned?
+          puts Rainbow("Cloning #{app.repo}").green
           Git.clone_app(app)
         end
 
         Git.git('checkout master', 'Checkout master', app.location)
         Git.git('pull', 'Get latest master', app.location)
-
-
 
         BuildRepo.build_repo(app.build_command, 'Building Repo', app.location)
         LicenseFinder.license_finder("--decisions-file=#{Config.project_root}/decision_files/#{app.name}.yml", 'Running License Finder', app.location)

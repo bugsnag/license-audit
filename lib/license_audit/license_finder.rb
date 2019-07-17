@@ -9,6 +9,7 @@ module LicenseAudit
     class << self
 
       def build(app)
+        puts app.build_command
         return main_run("cd #{app.location} && #{app.build_command}")
       end
 
@@ -30,7 +31,7 @@ module LicenseAudit
           end
         end
 
-        return main_run("cd #{app.location} && license_finder")
+        return main_run("cd #{app.location} && license_finder #{app.license_finder_opts}")
 
       end
 

@@ -1,17 +1,36 @@
 apps:
   license-audit:
     repo: "bugsnag/license-audit"
-    build-command: "bundle install"
-    enabled: true
+    build_command: "bundle install"
+  maze-runner:
+    repo: "bugsnag/maze-runner"
+    build_command: "bundle install"
   bugsnag-js:
     repo: "bugsnag/bugsnag-js"
-    build-command: "npm install"
-    enabled: true
+    build_command: "npm install"
   bugsnag-android:
     repo: "bugsnag/bugsnag-android"
-    build-command: "./gradlew"
-    enabled: true
+    build_command: "./gradlew"
   bugsnag-cocoa:
     repo: "bugsnag/bugsnag-cocoa"
-    build-command: "make"
-    enabled: true
+    build_command: "rm Gemfile && make"
+  bugsnag-php:
+    repo: "bugsnag/bugsnag-php"
+    build_command: "composer install"
+  bugsnag-laravel:
+    repo: "bugsnag/bugsnag-laravel"
+    # Remove Gemfile as LicenseFinder cannot cope with Git link to repo for MazeRunner and this is audited separately
+    build_command: "rm Gemfile && composer install"
+  bugsnag-symfony:
+    repo: "bugsnag/bugsnag-symfony"
+    build_command: "composer install"
+  bugsnag-silex:
+    repo: "bugsnag/bugsnag-silex"
+    build_command: "composer install"
+  bugsnag-wordpress:
+    repo: "bugsnag/bugsnag-wordpress"
+    build_command: "composer install"
+  bugsnag-python:
+    repo: "bugsnag/bugsnag-python"
+    build_command: "pip install -r dev_requirements.txt"
+    license_finder_opts: "--pip-requirements-path=dev_requirements.txt"

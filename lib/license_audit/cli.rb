@@ -41,6 +41,7 @@ module LicenseAudit
 
         Git.git('checkout master', 'Checkout master', app.location)
         Git.git('pull', 'Get latest master', app.location)
+        Git.git('checkout -- .', 'Reverting local changes', app.location)
 
         puts Rainbow("Building repo:").green
         if not LicenseFinder.build(app)

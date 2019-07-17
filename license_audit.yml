@@ -2,6 +2,16 @@ apps:
   license-audit:
     repo: "bugsnag/license-audit"
     build-command: "bundle install"
+    enabled: true
   bugsnag-js:
     repo: "bugsnag/bugsnag-js"
     build-command: "npm install"
+    enabled: true
+  bugsnag-android:
+    repo: "bugsnag/bugsnag-android"
+    build-command: "./gradlew"
+    enabled: true
+  bugsnag-cocoa:
+    repo: "bugsnag/bugsnag-cocoa"
+    build-command: "make"
+    enabled: true

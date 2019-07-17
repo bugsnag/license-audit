@@ -14,10 +14,12 @@ module LicenseAudit
 
     def self.load_apps(config, location = '.')
       config.apps.each_with_object({}) do |(name, app_data), hash|
-        hash[name] = App.new(name: name, 
-                             repo: app_data['repo'],
-                             path: app_data['path'] || location,
-                             build_command: app_data['build-command'])
+        if (app_data['enabled'])
+          hash[name] = App.new(name: name, 
+                              repo: app_data['repo'],
+                              path: app_data['path'] || location,
+                              build_command: app_data['build-command'])
+        end
       end
     end
 

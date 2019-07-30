@@ -10,7 +10,11 @@ module LicenseAudit
 
       def build(app)
         puts app.build_command
-        return main_run("cd #{app.location} && #{app.build_command}")
+        Bundler.with_clean_env do
+            Dir.chdir app.location do
+                return main_run(app.build_command)
+            end
+        end
       end
 
       def run(app)
@@ -31,7 +35,11 @@ module LicenseAudit
           end
         end
 
-        return main_run("cd #{app.location} && license_finder #{app.license_finder_opts}")
+        Bundler.with_clean_env do
+            Dir.chdir app.location do
+                return main_run("license_finder #{app.license_finder_opts}")
+            end
+        end
 
       end
 

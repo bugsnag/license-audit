@@ -24,6 +24,7 @@ module LicenseAudit
     end
 
     desc 'audit', 'Run the license audit'
+    option :clean
     def audit(app_name=nil)
 
       filtered_apps = apps.select{ |key, value| app_name == nil or key == app_name }
@@ -41,7 +42,7 @@ module LicenseAudit
 
         Git.git('checkout master', 'Checkout master', app.location)
         Git.git('pull', 'Get latest master', app.location)
-        Git.git('checkout -- .', 'Reverting local changes', app.location)
+        Git.git('checkout -- .', 'Reverting local changes', app.location) if options[:clean]
 
         puts Rainbow("Building repo:").green
         if not LicenseFinder.build(app)

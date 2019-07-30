@@ -7,7 +7,7 @@ apps:
     build_command: "bundle install"
   bugsnag-ruby:
     repo: "bugsnag/bugsnag-ruby"
-    build_command: "bundle install"
+    build_command: "bundle install --path vendor/cache --with coverage test rubocop sidekiq doc maze"
   bugsnag-js:
     repo: "bugsnag/bugsnag-js"
     build_command: "npm install"

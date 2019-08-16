@@ -13,7 +13,7 @@ apps:
     build_command: "npm install"
   bugsnag-react-native:
     repo: "bugsnag/bugsnag-react-native"
-    build_command: "rm Gemfile && rm yarn.lock && npm install fsevents node && npm install"
+    build_command: "npm install fsevents node && npm install && bundle install --path vendor/cache"
   bugsnag-sourcemaps:
     repo: "bugsnag/bugsnag-sourcemaps"
     build_command: "npm install"
@@ -28,7 +28,7 @@ apps:
     build_command: "./gradlew jar"
   bugsnag-cocoa:
     repo: "bugsnag/bugsnag-cocoa"
-    build_command: "rm Gemfile && make"
+    build_command: "make && bundle install --path vendor/cache"
   bugsnag-unity:
     repo: "bugsnag/bugsnag-unity"
     build_command: "bundle install"
@@ -37,8 +37,7 @@ apps:
     build_command: "composer install"
   bugsnag-laravel:
     repo: "bugsnag/bugsnag-laravel"
-    # Remove Gemfile as LicenseFinder cannot cope with Git link to repo for MazeRunner and this is audited separately
-    build_command: "rm Gemfile && composer install"
+    build_command: "composer install && bundle install --path vendor/cache"
   bugsnag-symfony:
     repo: "bugsnag/bugsnag-symfony"
     build_command: "composer install"

@@ -25,7 +25,7 @@ apps:
     build_command: "rm -f Gemfile && ./gradlew build"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
-    build_command: "rm -f Gemfile && ./gradlew jar"
+    build_command: "rm -f Gemfile && ./gradlew build"
   bugsnag-cocoa:
     repo: "bugsnag/bugsnag-cocoa"
     build_command: "rm Gemfile && make"

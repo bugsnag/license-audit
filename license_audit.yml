@@ -19,13 +19,13 @@ apps:
     build_command: "npm install"
   bugsnag-android:
     repo: "bugsnag/bugsnag-android"
-    build_command: "./gradlew build -PABI_FILTERS=x86,arm64-v8a"
+    build_command: "rm -f Gemfile && ./gradlew build -PABI_FILTERS=x86,arm64-v8a"
   bugsnag-android-gradle-plugin:
     repo: "bugsnag/bugsnag-android-gradle-plugin"
-    build_command: "./gradlew build"
+    build_command: "rm -f Gemfile && ./gradlew build"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
-    build_command: "./gradlew jar"
+    build_command: "rm -f Gemfile && ./gradlew build"
   bugsnag-cocoa:
     repo: "bugsnag/bugsnag-cocoa"
     build_command: "make && bundle install --path vendor/cache"

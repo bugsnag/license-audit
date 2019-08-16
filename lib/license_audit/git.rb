@@ -22,7 +22,7 @@ module LicenseAudit
       end
 
       def clone_app(app)
-        puts main_run("git clone git@github.com:#{app.repo}.git #{app.location}")
+        puts main_run("git clone --recurse-submodules git@github.com:#{app.repo}.git #{app.location}")
       end
 
       def git_on_apps(*command, apps)

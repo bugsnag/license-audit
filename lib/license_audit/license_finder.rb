@@ -12,7 +12,7 @@ module LicenseAudit
         puts app.build_command
         Bundler.with_clean_env do
             Dir.chdir app.location do
-                return main_run(app.build_command)
+                return main_run("#{app.build_command} > ../../build/#{app.name}.txt 2>&1")
             end
         end
       end
@@ -23,12 +23,14 @@ module LicenseAudit
         source_decision_file_dir = "#{Config.project_root}/decision_files/"
         Dir.mkdir(target_decision_file_dir) unless File.exists?(target_decision_file_dir)
         File.open("#{target_decision_file_dir}/dependency_decisions.yml", 'w') do | decision_file |
+          decision_file.puts "# Global decisions"
           File.open("#{source_decision_file_dir}/global.yml") do | file |
             while line = file.gets
                 decision_file.puts line
             end
           end
-            File.open("#{source_decision_file_dir}/#{app.name}.yml") if File.exists?("#{source_decision_file_dir}/#{app.name}.yml") do | file |
+          decision_file.puts "# Repository-specific decisions"
+          File.open("#{source_decision_file_dir}/#{app.name}.yml") if File.exists?("#{source_decision_file_dir}/#{app.name}.yml") do | file |
             while line = file.gets
                 decision_file.puts line
             end
@@ -36,9 +38,12 @@ module LicenseAudit
         end
 
         Bundler.with_clean_env do
-            Dir.chdir app.location do
-                return main_run("license_finder #{app.license_finder_opts}")
-            end
+          Dir.chdir app.location do
+            # Run the report first...
+            main_run("license_finder report --format html #{app.license_finder_opts} > ../../reports/#{app.name}.html 2>&1")
+            # Then re-run for the return code and stderr output to console
+            return main_run("license_finder #{app.license_finder_opts}")
+          end
         end
 
       end

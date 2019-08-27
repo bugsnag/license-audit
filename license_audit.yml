@@ -41,15 +41,11 @@ apps:
     build_command: 
         - "./gradlew build"
         - "bundle install --path vendor/cache"
-#   bugsnag-cocoa:
-#     repo: "bugsnag/bugsnag-cocoa"
-#     build_command:
-#         - "make"
-#         - "bundle install --path vendor/cache"
-#   bugsnag-unity:
-#     repo: "bugsnag/bugsnag-unity"
-#     build_command: 
-#         - "bundle install"
+  bugsnag-cocoa:
+    repo: "bugsnag/bugsnag-cocoa"
+    build_command:
+        - "make"
+        - "bundle install --path vendor/cache"
   bugsnag-php:
     repo: "bugsnag/bugsnag-php"
     build_command: 

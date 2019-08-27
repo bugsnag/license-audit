@@ -9,12 +9,16 @@ module LicenseAudit
     class << self
 
       def build(app)
-        puts app.build_command
-        Bundler.with_clean_env do
-            Dir.chdir app.location do
-                return main_run("#{app.build_command} > ../../build/#{app.name}.txt 2>&1")
+        return_code = 0
+        app.build_command.each { |command|
+            puts command
+            Bundler.with_clean_env do
+                Dir.chdir app.location do
+                    return false unless main_run("#{command} > ../../build/#{app.name}.txt 2>&1")
+                end
             end
-        end
+        }
+        return true
       end
 
       def run(app)

@@ -1,0 +1,7 @@
+steps:
+  - label: 'Create report'
+    timeout_in_minutes: 10
+    plugins:
+      - docker-compose#v2.6.0:
+          run: ruby bundle exec license_audit close_report
+    artifact_paths: build/*

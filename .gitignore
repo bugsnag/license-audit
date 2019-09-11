@@ -1,5 +1,7 @@
 *.gem
 Gemfile.lock
+id_rsa
 apps/
 build/
 reports/
+.DS_Store

@@ -14,7 +14,7 @@ module LicenseAudit
             puts command
             Bundler.with_clean_env do
                 Dir.chdir app.location do
-                    return false unless main_run("#{command}")
+                    return false unless main_run("#{command} >> ../../build/#{app.name}.txt 2>&1")
                 end
             end
         }

@@ -1,0 +1,23 @@
+FROM php:7.2-alpine
+
+RUN apk update
+RUN apk add --no-cache git build-base ncurses ncurses-dev openssh
+RUN apk add --no-cache ruby ruby-bundler ruby-dev ruby-rdoc
+RUN apk add --no-cache composer
+
+RUN gem install bundler --version "=2.0.2"
+
+COPY . /audit
+
+RUN mkdir /root/.ssh/
+ADD id_rsa /root/.ssh/id_rsa
+RUN touch /root/.ssh/known_hosts
+RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
+
+WORKDIR /audit
+
+RUN bundle install
+
+ENV env=
+
+ENTRYPOINT bundle exec license_audit audit --env=$env

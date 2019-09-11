@@ -26,10 +26,12 @@ module LicenseAudit
     end
 
     desc 'audit', 'Run the license audit'
-    option :clean
-    def audit(app_name=nil)
+    option :clean, :desc => 'Whether to re-clone repository'
+    option :app, :desc => 'The name of the repository to check'
+    option :env, :desc => 'The build environment present'
+    def audit()
 
-      filtered_apps = apps.select{ |key, value| app_name == nil or key == app_name }
+      filtered_apps = apps.select{ |key, app| (!options.key?(:app) || key == options[:app]) && (!options.key?(:env) || app.env == options[:env]) }
       
       summary_file = File.open("reports/index.html", "w")
       summary_file.puts(File.read("summary_file_header.html"))
@@ -47,7 +49,7 @@ module LicenseAudit
         summary_file.puts("<tr><td><a href=\"https://github.com/#{app.repo}\">#{app.name}</a>")
         summary_file.puts("[<a href=\"../apps/#{app.name}/doc/dependency_decisions.yml\">decision file</a>]</td>")
 
-        unless app.repo_cloned?
+        unless !options[:clean] && app.repo_cloned?
           puts Rainbow("Cloning #{app.repo}").green
           Git.clone_app(app)
         end

@@ -22,6 +22,7 @@ module LicenseAudit
       end
 
       def clone_app(app)
+        puts main_run("rm -rf #{app.location}") if File.exists?(app.location)
         puts main_run("git clone --recurse-submodules git@github.com:#{app.repo}.git #{app.location}")
       end
 

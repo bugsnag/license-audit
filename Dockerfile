@@ -16,8 +16,6 @@ RUN mkdir -p apps
 RUN mkdir -p build
 RUN mkdir -p reports
 
-RUN git config --global user.name "Licnese Audit"
-
 COPY . /audit
 
 WORKDIR /audit

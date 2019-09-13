@@ -12,13 +12,13 @@ RUN apk add --no-cache ${apks}
 RUN gem install bundler --version "=2.0.2"
 RUN bundle config --global silence_root_warning 1
 
-COPY . /audit
-
-WORKDIR /audit
-
 RUN mkdir apps
 RUN mkdir build
 RUN mkdir reports
+
+COPY . /audit
+
+WORKDIR /audit
 
 RUN bundle install
 

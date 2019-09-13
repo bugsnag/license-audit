@@ -10,10 +10,10 @@ services:
                 apks: 
         environment:
             env: ruby
-        # volumes:
-        #     - apps:/audit/apps
-        #     - reports:/audit/reports
-        #     - build:/audit/build
+        volumes:
+            - apps:/audit/apps
+            - reports:/audit/reports
+            - build:/audit/build
     php:
         image: license-audit:php
         build:
@@ -24,10 +24,10 @@ services:
                 apks: composer
         environment:
             env: php
-        # volumes:
-        #     - apps:/audit/apps
-        #     - reports:/audit/reports
-        #     - build:/audit/build
+        volumes:
+            - apps:/audit/apps
+            - reports:/audit/reports
+            - build:/audit/build
     js:
         image: license-audit:js
         build:
@@ -38,26 +38,26 @@ services:
                 apks: npm
         environment:
             env: js
-#         volumes:
-#             - apps:/audit/apps
-#             - reports:/audit/reports
-#             - build:/audit/build
-# volumes:
-#   apps:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: $PWD/apps
-#   reports:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: $PWD/reports
-#   build:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: $PWD/build
+        volumes:
+            - apps:/audit/apps
+            - reports:/audit/reports
+            - build:/audit/build
+volumes:
+  apps:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/apps
+  reports:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/reports
+  build:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/build

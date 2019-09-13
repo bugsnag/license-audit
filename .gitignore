@@ -1,7 +1,10 @@
 *.gem
 Gemfile.lock
 id_rsa
-apps/
-build/
-reports/
+/apps/*
+!/apps/.gitignore 
+/build/*
+!/build/.gitignore 
+/reports/*
+!/reports/.gitignore 
 .DS_Store

@@ -16,6 +16,10 @@ COPY . /audit
 
 WORKDIR /audit
 
+RUN mkdir apps
+RUN mkdir build
+RUN mkdir reports
+
 RUN bundle install
 
 ENV env=

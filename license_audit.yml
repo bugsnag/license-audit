@@ -1,9 +1,9 @@
 apps:
-  license-audit:
-    repo: "bugsnag/license-audit"
-    env: "ruby"
-    build_command:
-        - "bundle install"
+#   license-audit:
+#     repo: "bugsnag/license-audit"
+#     env: "ruby"
+#     build_command:
+#         - "bundle install"
   maze-runner:
     repo: "bugsnag/maze-runner"
     env: "ruby"

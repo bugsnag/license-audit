@@ -1,8 +1,16 @@
 steps:
-  - label: 'Create report'
+  - label: 'Ruby'
     timeout_in_minutes: 10
     plugins:
       - docker-compose#v2.6.0:
-          run: ruby 
-          command: ["bundle exec", "license_audit", "open_report"]
-    artifact_paths: build/*
+          run: ruby
+  - label: 'PHP'
+    timeout_in_minutes: 10
+    plugins:
+      - docker-compose#v2.6.0:
+          run: php
+  - label: 'JS'
+    timeout_in_minutes: 10
+    plugins:
+      - docker-compose#v2.6.0:
+          run: js

@@ -12,11 +12,6 @@ RUN apk add --no-cache ${apks}
 RUN gem install bundler --version "=2.0.2"
 RUN bundle config --global silence_root_warning 1
 
-RUN mkdir -p /root/.ssh/
-ADD id_rsa /root/.ssh/id_rsa
-RUN touch /root/.ssh/known_hosts
-RUN ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
-
 COPY . /audit
 
 WORKDIR /audit

@@ -5,37 +5,37 @@ steps:
       - docker-compose#v2.6.0:
           run: ruby
     artifact_paths:
-      - build/*
-      - reports/*
+      - build/*.txt
+      - reports/*.html
   - label: 'PHP'
     timeout_in_minutes: 10
     plugins:
       - docker-compose#v2.6.0:
           run: php
     artifact_paths:
-      - build/*
-      - reports/*
+      - build/*.txt
+      - reports/*.html
   - label: 'JS'
     timeout_in_minutes: 10
     plugins:
       - docker-compose#v2.6.0:
           run: js
     artifact_paths:
-      - build/*
-      - reports/*
+      - build/*.txt
+      - reports/*.html
   - label: 'Java'
     timeout_in_minutes: 10
     plugins:
       - docker-compose#v2.6.0:
           run: java
     artifact_paths:
-      - build/*
-      - reports/*
+      - build/*.txt
+      - reports/*.html
   - label: 'Python'
     timeout_in_minutes: 10
     plugins:
       - docker-compose#v2.6.0:
           run: python
     artifact_paths:
-      - build/*
-      - reports/*
+      - build/*.txt
+      - reports/*.html

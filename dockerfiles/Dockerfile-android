@@ -1,0 +1,43 @@
+ARG img=
+
+FROM ${img}
+
+ARG apks=
+
+RUN apk update
+RUN apk add --no-cache git build-base ncurses ncurses-dev openssh
+RUN apk add --no-cache ruby ruby-bundler ruby-dev ruby-rdoc
+RUN apk add --no-cache ${apks}
+
+RUN gem install bundler --version "=2.0.2"
+
+COPY . /audit
+
+WORKDIR /audit
+
+RUN bundle config --global silence_root_warning 1
+
+WORKDIR /sdk
+RUN wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -q
+RUN unzip -q sdk-tools-linux-4333796.zip
+
+ENV PATH="${PATH}:/sdk/tools:/sdk/tools/bin"
+
+RUN yes | sdkmanager "platform-tools"
+ENV PATH="${PATH}:/sdk/platform-tools"
+ENV ANDROID_HOME="/sdk"
+ENV ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
+ENV LOCAL_ANDROID_NDK_HOST_PLATFORM="linux-x86_64"
+ENV PATH="${PATH}:${ANDROID_NDK_HOME}"
+
+ENV GRADLE_OPTS="-Dorg.gradle.daemon=false"
+
+COPY . /audit
+
+WORKDIR /audit
+
+RUN bundle install
+
+ENV env=
+
+CMD bundle exec license_audit audit --env=$env

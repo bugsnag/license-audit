@@ -1,9 +1,9 @@
 apps:
-#   license-audit:
-#     repo: "bugsnag/license-audit"
-#     env: "ruby"
-#     build_command:
-#         - "bundle install"
+  license-audit:
+    repo: "bugsnag/license-audit"
+    env: "ruby"
+    build_command:
+        - "bundle install"
   maze-runner:
     repo: "bugsnag/maze-runner"
     env: "ruby"
@@ -34,8 +34,9 @@ apps:
   bugsnag-android:
     repo: "bugsnag/bugsnag-android"
     env: "java"
+    branch: "tom/amend-ndk-script-overwrite"
     build_command: 
-        - "./gradlew build -PABI_FILTERS=x86,arm64-v8a"
+        - "./scripts/install-ndk.sh && ./gradlew build -PABI_FILTERS=x86,arm64-v8a"
         - "bundle install --path vendor/cache"
     license_finder_opts: '--gradle_command "./gradlew -PABI_FILTERS=x86,arm64-v8a"'
   bugsnag-android-gradle-plugin:

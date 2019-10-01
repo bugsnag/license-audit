@@ -4,7 +4,7 @@ services:
         image: license-audit:ruby
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: dockerfiles/Dockerfile
             args:
                 img: ruby:2.5-alpine
                 apks: 
@@ -18,7 +18,7 @@ services:
         image: license-audit:php
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: dockerfiles/Dockerfile
             args:
                 img: php:7.2-alpine
                 apks: composer
@@ -32,12 +32,27 @@ services:
         image: license-audit:js
         build:
             context: .
-            dockerfile: Dockerfile
+            dockerfile: dockerfiles/Dockerfile
             args:
                 img: alpine
                 apks: npm
         environment:
             env: js
+        volumes:
+            - apps:/audit/apps
+            - reports:/audit/reports
+            - build:/audit/build
+    java:
+        image: license-audit:java
+        build:
+            context: .
+            dockerfile: dockerfiles/Dockerfile-android
+            args:
+                img: openjdk:8-alpine
+                apks: gradle jq bash ruby-dev build-base libffi-dev curl-dev curl
+        environment:
+            env: java
+        # command: tail -f /dev/null
         volumes:
             - apps:/audit/apps
             - reports:/audit/reports

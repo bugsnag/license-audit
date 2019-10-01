@@ -2,13 +2,14 @@
 
 module LicenseAudit
   class App
-    attr_accessor :name, :repo, :env, :path, :build_command, :license_finder_opts, :location
+    attr_accessor :name, :repo, :env, :path, :branch, :build_command, :license_finder_opts, :location
 
-    def initialize(name:, repo:, env:, path:, build_command:, license_finder_opts:)
+    def initialize(name:, repo:, env:, path:, branch:, build_command:, license_finder_opts:)
       self.name = name
       self.repo = repo
       self.env = env
       self.path = path
+      self.branch = branch
       self.build_command = build_command
       self.license_finder_opts = license_finder_opts
       self.location = File.join(Config.project_root, path, name)
@@ -20,6 +21,7 @@ module LicenseAudit
                              repo: app_data['repo'],
                              env: app_data['env'],
                              path: app_data['path'] || location,
+                             branch: app_data['branch'] || 'master',
                              build_command: app_data['build_command'],
                              license_finder_opts: app_data['license_finder_opts'])
       end

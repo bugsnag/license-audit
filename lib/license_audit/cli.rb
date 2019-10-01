@@ -8,6 +8,7 @@ require 'license_audit/git'
 require 'license_audit/license_finder'
 require 'license_audit/config'
 require 'license_audit/app'
+require 'license_audit/report'
 
 module LicenseAudit
   class CLI < Thor
@@ -23,26 +24,6 @@ module LicenseAudit
 
     def self.exit_on_failure?
       true
-    end
-
-    desc 'open_report', 'Opens the report file'
-    def open_report()
-        summary_file = File.open("reports/index.html", "w")
-        summary_file.puts(File.read("summary_file_header.html"))
-        summary_file.puts("<h1>Bugsnag Notifier Repository License Audit</h1>")
-        summary_file.puts("<h3>Reports</h3><p>Run at: #{Time.new}")
-        summary_file.puts("<table class='table'><thead><th>Repository</th><th>Build</th><th>Audit</th></thead><tbody>")
-        summary_file.flush
-        summary_file.close
-    end
-
-    desc 'close_report', 'Closes the report file'
-    def close_report()
-        summary_file = File.open("reports/index.html", "a")
-        summary_file.puts("</tbody></table>")
-        summary_file.puts("<p>Completed at: #{Time.new}</p>")
-        summary_file.puts(File.read("summary_file_footer.html"))
-        summary_file.close
     end
 
     desc 'audit', 'Run the license audit'
@@ -62,8 +43,8 @@ module LicenseAudit
         puts
         exit 1
       end
-      
-      output_text = ''
+
+      Report.create()
 
       error_count = 0
       filtered_apps.each_with_index do |(name, app), index|
@@ -71,45 +52,40 @@ module LicenseAudit
         puts
         puts Rainbow("[#{index + 1}/#{filtered_apps.length}] #{app.repo}").inverse
 
-        output_text += "<tr><td><a href=\"https://github.com/#{app.repo}\">#{app.name}</a>"
-        output_text += "[<a href=\"../apps/#{app.name}/doc/dependency_decisions.yml\">decision file</a>]</td>"
-
-        unless !options[:clean] && app.repo_cloned?
+        if options[:clean] || !app.repo_cloned?
           puts Rainbow("Cloning #{app.repo}").green
           Git.clone_app(app)
         end
 
-        Git.git('checkout master', 'Checkout master', app.location)
-        Git.git('pull', 'Get latest master', app.location)
-        Git.git('checkout -- .', 'Reverting local changes', app.location) if options[:clean]
+        Git.git('checkout -- .', 'Reverting local changes', app.location)
+        Git.git('fetch', 'Get latest', app.location)
+        Git.git("checkout #{app.branch}", "Checkout #{app.branch} branch", app.location)
+        Git.git('pull', 'Refresh branch', app.location)
 
         puts Rainbow("Building repo:").green
-        if not LicenseFinder.build(app)
+        build_suceeded = LicenseFinder.build(app)
+        audit_succeeded = false
+        
+        if not build_suceeded
           puts Rainbow("[#{index + 1}/#{filtered_apps.length}] BUILD FAILED: #{app.repo}").underline.red.inverse
           error_count += 1
-          output_text += "<td><a href=\"../build/#{app.name}.txt\"><span class=\"badge badge-important\">&#x2717;</span></a></td><td></td></tr>"
-          next
         else
-          output_text += "<td><a href=\"../build/#{app.name}.txt\"><span class=\"badge badge-success\">&#x2713;</span></a></td>"
-        end
+          puts Rainbow("Running license check:").green
 
-        puts Rainbow("Running license check:").green
-        if not LicenseFinder.run(app)
-          puts Rainbow("[#{index + 1}/#{filtered_apps.length}] AUDIT FAILED: #{app.repo}").underline.red.inverse
-          error_count += 1
-          output_text += "<td><a href=\"../reports/#{app.name}.html\"><span class=\"badge badge-important\">&#x2717;</span></td></tr>"
-        else
-          puts Rainbow("[#{index + 1}/#{filtered_apps.length}] AUDIT PASSED: #{app.repo}").underline.green.inverse
-          output_text += "<td><a href=\"../reports/#{app.name}.html\"><span class=\"badge badge-success\">&#x2713;</span></td></tr>"
+          audit_succeeded = LicenseFinder.run(app)
+          if not audit_succeeded
+            puts Rainbow("[#{index + 1}/#{filtered_apps.length}] AUDIT FAILED: #{app.repo}").underline.red.inverse
+            error_count += 1
+          else
+            puts Rainbow("[#{index + 1}/#{filtered_apps.length}] AUDIT PASSED: #{app.repo}").underline.green.inverse
+          end
+          
         end
-
+        
+        Report.addAppRun(app, build_suceeded, audit_succeeded)
       end
 
-    summary_file = File.open("reports/index.html", "a")
-    summary_file.puts(output_text)
-    summary_file.close
-    
-    if error_count == 0
+      if error_count == 0
         puts
         puts Rainbow("AUDIT COMPLETED SUCCESSFULLY (#{filtered_apps.length} repos)").underline.green.inverse
         puts
@@ -131,4 +107,5 @@ module LicenseAudit
     end
 
   end
+
 end

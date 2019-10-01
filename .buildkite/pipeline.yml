@@ -31,3 +31,11 @@ steps:
     artifact_paths:
       - build/*
       - reports/*
+  - label: 'Python'
+    timeout_in_minutes: 10
+    plugins:
+      - docker-compose#v2.6.0:
+          run: python
+    artifact_paths:
+      - build/*
+      - reports/*

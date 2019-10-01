@@ -57,6 +57,20 @@ services:
             - apps:/audit/apps
             - reports:/audit/reports
             - build:/audit/build
+    python:
+        image: license-audit:python
+        build:
+            context: .
+            dockerfile: dockerfiles/Dockerfile
+            args:
+                img: python:3.7-alpine
+                # apks: composer
+        environment:
+            env: python
+        volumes:
+            - apps:/audit/apps
+            - reports:/audit/reports
+            - build:/audit/build
 volumes:
   apps:
     driver: local

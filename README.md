@@ -1,10 +1,12 @@
 # License Audit
 
+[![Build status](https://badge.buildkite.com/20f948b9c7ff7b797a28865ae743627dd78a4664079738992a.svg)](https://buildkite.com/bugsnag/notifier-license-audit)
+
 Internal audit tool to check our repositories for compliance of open source licensing with company policy.
 
 This Ruby script runs through a list of repositories to audit and runs the [LicenseFinder](https://github.com/pivotal/LicenseFinder) tool against them. With appropriate whitelisted licenses and pre-approved packages checked-in and maintained in this repository, this audit should succeed with no unexpected licenses.
 
-## Usage
+## Local Usage
 
 Checkout the code and run:
 
@@ -26,7 +28,23 @@ Or just an individual one:
 bundle exec license_audit audit bugsnag-js
 ````
 
-Each repo will be cloned into the `apps` directory (on `master` branch) and LicenseFinder is run from this location.
+Each repo will be cloned into the `apps` directory and LicenseFinder is run from this location.
+
+Build output from `stdout`/`stderr` is stored in `build` and audit report files are in `report`.
+
+## Docker Usage
+
+The audit can be run with `docker-compose` which creates an image for each build environment and allows them to be executed individually:
+
+```
+docker-compose build
+docker-run ruby
+docker-run java
+docker-run js
+docker-run php
+docker-run python
+```
+The `docker-compose.yml` file parameterises the base image and APK's required. It also volumes the `apps`, `build` and `reports` directories so they are shared by each run and produce a single report. Most builds use a single `Dockerfile` in the `dockerfiles` directory, but more complex environments (e.g. Android) can use a custom `Dockerfile` by putting the path into the `docker-compoose.yml`.
 
 ## Approving Packages & Whitelisting Licensing
 

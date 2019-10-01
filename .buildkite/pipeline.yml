@@ -6,7 +6,7 @@ steps:
           run: ruby
     artifact_paths:
       - build/*
-        reports/*
+      - reports/*
   - label: 'PHP'
     timeout_in_minutes: 10
     plugins:
@@ -14,7 +14,7 @@ steps:
           run: php
     artifact_paths:
       - build/*
-        reports/*
+      - reports/*
   - label: 'JS'
     timeout_in_minutes: 10
     plugins:
@@ -22,7 +22,7 @@ steps:
           run: js
     artifact_paths:
       - build/*
-        reports/*
+      - reports/*
   - label: 'Java'
     timeout_in_minutes: 10
     plugins:
@@ -30,4 +30,4 @@ steps:
           run: java
     artifact_paths:
       - build/*
-        reports/*
+      - reports/*

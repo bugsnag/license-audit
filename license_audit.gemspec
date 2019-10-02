@@ -31,6 +31,10 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "thor", "~> 0.19"
   spec.add_runtime_dependency "rainbow", "~> 3.0.0"
-  spec.add_runtime_dependency "rubyzip", ">= 1.3"
+  if RUBY_VERSION >= '2.4'
+    spec.add_runtime_dependency "rubyzip", "~> 2.0"
+  else
+    spec.add_runtime_dependency "rubyzip", "~> 1.3"
+  end
 
 end

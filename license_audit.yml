@@ -44,7 +44,6 @@ apps:
     repo: "bugsnag/bugsnag-react-native"
     env: "js"
     build_command:
-        - "npm install fsevents node"
         - "npm install"
         - "bundle install --path vendor/cache"
   bugsnag-sourcemaps:

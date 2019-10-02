@@ -52,15 +52,17 @@ module LicenseAudit
         puts
         puts Rainbow("[#{index + 1}/#{filtered_apps.length}] #{app.repo}").inverse
 
-        if options[:clean] || !app.repo_cloned?
+        if !app.repo_cloned?
           puts Rainbow("Cloning #{app.repo}").green
           Git.clone_app(app)
         end
 
-        Git.git('checkout -- .', 'Reverting local changes', app.location)
-        Git.git('fetch', 'Get latest', app.location)
-        Git.git("checkout #{app.branch}", "Checkout #{app.branch} branch", app.location)
-        Git.git('pull', 'Refresh branch', app.location)
+        if options[:clean]
+          Git.git('checkout -- .', 'Reverting local changes', app.location)
+          Git.git('fetch', 'Get latest', app.location)
+          Git.git("checkout #{app.branch}", "Checkout #{app.branch} branch", app.location)
+          Git.git('pull', 'Refresh branch', app.location)
+        end
 
         puts Rainbow("Building repo:").green
         build_suceeded = LicenseFinder.build(app)

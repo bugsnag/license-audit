@@ -45,7 +45,7 @@ apps:
     env: "js"
     build_command:
         - "npm install"
-        - "bundle install --path vendor/cache"
+        - "rm Gemfile.lock && bundle install --path vendor/cache"
   bugsnag-sourcemaps:
     repo: "bugsnag/bugsnag-sourcemaps"
     env: "js"

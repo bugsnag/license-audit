@@ -24,34 +24,13 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   = ["license_audit"]
   spec.require_paths = ["lib"]
-  spec.required_ruby_version = '~> 2.4'
+  spec.required_ruby_version = '>= 2.3'
 
-  spec.add_development_dependency "bundler", "~> 2.0.2"
+  spec.add_development_dependency "bundler", ">= 1.13"
   spec.add_development_dependency "rubocop", "~> 0.55.0"
 
   spec.add_runtime_dependency "thor", "~> 0.19"
   spec.add_runtime_dependency "rainbow", "~> 3.0.0"
-  spec.add_runtime_dependency "parallel", "~> 1.12.0"
-  spec.add_runtime_dependency "license_finder", "~> 5.9.2"
-  spec.add_runtime_dependency "rake", "~> 12.3.2"
-  spec.add_runtime_dependency "backports", "~> 3.11.4"
-  spec.add_runtime_dependency "builder", "~> 3.2.3"
-  spec.add_runtime_dependency "cucumber-expressions", "5.0.15"
-  spec.add_runtime_dependency "cucumber-wire", "0.0.1"
-  spec.add_runtime_dependency "cucumber-tag_expressions", "~> 1.1.1"
-  spec.add_runtime_dependency "gherkin", "~> 5.1.0"
-  spec.add_runtime_dependency "cucumber", "~> 3.1.0"
-  spec.add_runtime_dependency "cucumber-core", "~> 3.1.0"
-  spec.add_runtime_dependency "diff-lcs", "~> 1.3"
-  spec.add_runtime_dependency "multi_json", "~> 1.13.1"
-  spec.add_runtime_dependency "multi_test", "~> 0.1.2"
-  spec.add_runtime_dependency "minitest", "~> 5.11.3"
-  spec.add_runtime_dependency "os", "1.0.0"
-  spec.add_runtime_dependency "rack", "2.0.6"
-  spec.add_runtime_dependency "power_assert", "1.1.3"
-  spec.add_runtime_dependency "test-unit", "3.2.9"
-  spec.add_runtime_dependency "coderay", "1.1.2"
-  spec.add_runtime_dependency "method_source", "0.9.2"
-  spec.add_runtime_dependency "pry", "0.12.2"
+  spec.add_runtime_dependency "rubyzip", ">= 1.3"
 
 end

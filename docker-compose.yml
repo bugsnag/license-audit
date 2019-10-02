@@ -48,8 +48,8 @@ services:
             context: .
             dockerfile: dockerfiles/Dockerfile-android
             args:
-                img: openjdk:8-alpine
-                apks: gradle jq bash ruby-dev build-base libffi-dev curl-dev curl
+                img: openjdk:8-jdk-stretch
+                apks: gradle jq
         environment:
             env: java
         # command: tail -f /dev/null
@@ -64,7 +64,6 @@ services:
             dockerfile: dockerfiles/Dockerfile
             args:
                 img: python:3.7-alpine
-                # apks: composer
         environment:
             env: python
         volumes:

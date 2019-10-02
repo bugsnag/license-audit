@@ -1,5 +1,5 @@
 apps:
-  # license-audit:
+  # license-audit:                            # <- Unable to run on CI as this is a private repo
   #   repo: "bugsnag/license-audit"
   #   env: "ruby"
   #   build_command:
@@ -14,6 +14,27 @@ apps:
     env: "ruby"
     build_command: 
         - "bundle install --path vendor/cache --with coverage test rubocop sidekiq doc maze"
+  bugsnag-dsym-upload:
+    repo: "bugsnag/bugsnag-dsym-upload"
+    env: "ruby"
+    build_command: 
+        - "make bootstrap"
+        - "bundle install --path vendor/cache"
+  bugsnag-api-ruby:
+    repo: "bugsnag/bugsnag-api-ruby"
+    env: "ruby"
+    build_command: 
+        - "bundle install --path vendor/cache"
+  bugsnag-capistrano:
+    repo: "bugsnag/bugsnag-capistrano"
+    env: "ruby"
+    build_command: 
+        - "bundle install --path vendor/cache"
+  bugsnag-em:
+    repo: "bugsnag/bugsnag-em"
+    env: "ruby"
+    build_command: 
+        - "bundle install --path vendor/cache"
   bugsnag-js:
     repo: "bugsnag/bugsnag-js"
     env: "js"
@@ -31,25 +52,45 @@ apps:
     env: "js"
     build_command: 
         - "npm install"
+  gulp-bugsnag:
+    repo: "bugsnag/gulp-bugsnag"
+    env: "js"
+    build_command: 
+        - "npm install"
+  grunt-bugsnag:
+    repo: "bugsnag/grunt-bugsnag"
+    env: "js"
+    build_command: 
+        - "npm install"
+  webpack-bugsnag-plugins:
+    repo: "bugsnag/webpack-bugsnag-plugins"
+    env: "js"
+    build_command: 
+        - "npm install"
+  bugsnag-build-reporter-node:
+    repo: "bugsnag/bugsnag-build-reporter-node"
+    env: "js"
+    build_command: 
+        - "npm install"
   bugsnag-android:
     repo: "bugsnag/bugsnag-android"
     env: "java"
     branch: "tom/amend-ndk-script-overwrite"
     build_command: 
-        - "./scripts/install-ndk.sh && ./gradlew build -PABI_FILTERS=x86,arm64-v8a"
+        - "./scripts/install-ndk.sh && ./gradlew build -x test -PABI_FILTERS=x86,arm64-v8a"
         - "bundle install --path vendor/cache"
-    license_finder_opts: '--gradle_command "./gradlew -PABI_FILTERS=x86,arm64-v8a"'
+    license_finder_opts: '--gradle_command "./gradlew -x test -PABI_FILTERS=x86,arm64-v8a"'
   bugsnag-android-gradle-plugin:
     repo: "bugsnag/bugsnag-android-gradle-plugin"
     env: "java"
     build_command: 
-        - "./gradlew build"
+        - "./gradlew build -x test"
         - "bundle install --path vendor/cache"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
     env: "java"
     build_command: 
-        - "./gradlew build"
+        - "./gradlew build -x test"
         - "bundle install --path vendor/cache"
   bugsnag-php:
     repo: "bugsnag/bugsnag-php"
@@ -67,6 +108,11 @@ apps:
     env: "php"
     build_command: 
         - "composer install"
+  # bugsnag-magento:                        # <- Currently unable to run with License Finder
+  #   repo: "bugsnag/bugsnag-magento"
+  #   env: "php"
+  #   build_command: 
+  #       - "composer install"
   bugsnag-silex:
     repo: "bugsnag/bugsnag-silex"
     env: "php"
@@ -77,8 +123,19 @@ apps:
     env: "php"
     build_command: 
         - "composer install"
+  bugsnag-psr-logger:
+    repo: "bugsnag/bugsnag-psr-logger"
+    env: "php"
+    build_command: 
+        - "composer install"
   bugsnag-python:
     repo: "bugsnag/bugsnag-python"
+    env: "python"
+    build_command: 
+        - "pip install -r dev_requirements.txt"
+    license_finder_opts: "--pip-requirements-path=dev_requirements.txt"
+  bugsnag-agent:
+    repo: "bugsnag/bugsnag-agent"
     env: "python"
     build_command: 
         - "pip install -r dev_requirements.txt"

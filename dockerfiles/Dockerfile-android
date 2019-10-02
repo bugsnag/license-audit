@@ -4,16 +4,11 @@ FROM ${img}
 
 ARG apks=
 
-RUN apk update
-RUN apk add --no-cache git build-base ncurses ncurses-dev openssh
-RUN apk add --no-cache ruby ruby-bundler ruby-dev ruby-rdoc
-RUN apk add --no-cache ${apks}
-
-RUN gem install bundler --version "=2.0.2"
-
-COPY . /audit
-
-WORKDIR /audit
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get update
+RUN apt-get install -y git-core curl build-essential openssl libssl-dev
+RUN apt-get install -y ruby ruby-bundler
+RUN apt-get install -y ${apks}
 
 RUN bundle config --global silence_root_warning 1
 
@@ -23,9 +18,11 @@ RUN unzip -q sdk-tools-linux-4333796.zip
 
 ENV PATH="${PATH}:/sdk/tools:/sdk/tools/bin"
 
-RUN yes | sdkmanager "platform-tools"
+RUN yes | sdkmanager "platform-tools" "build-tools;28.0.3"
+
 ENV PATH="${PATH}:/sdk/platform-tools"
-ENV ANDROID_HOME="/sdk"
+ENV ANDROID_HOME="/sdk/"
+
 ENV ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
 ENV LOCAL_ANDROID_NDK_HOST_PLATFORM="linux-x86_64"
 ENV PATH="${PATH}:${ANDROID_NDK_HOME}"

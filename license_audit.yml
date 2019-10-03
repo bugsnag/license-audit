@@ -76,19 +76,20 @@ apps:
     env: "java"
     branch: "tom/amend-ndk-script-overwrite"
     build_command: 
+        - "rm -f Gemfile*"
         - "./scripts/install-ndk.sh && ./gradlew build -x test -PABI_FILTERS=x86,arm64-v8a"
     license_finder_opts: '--gradle_command "./gradlew -x test -PABI_FILTERS=x86,arm64-v8a"'
   bugsnag-android-gradle-plugin:
     repo: "bugsnag/bugsnag-android-gradle-plugin"
     env: "java"
     build_command: 
-        - "rm Gemfile"
+        - "rm -f Gemfile*"
         - "./gradlew build -x test"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
     env: "java"
     build_command: 
-        - "rm Gemfile"
+        - "rm -f Gemfile*"
         - "./gradlew build -x test"
   bugsnag-php:
     repo: "bugsnag/bugsnag-php"
@@ -99,7 +100,7 @@ apps:
     repo: "bugsnag/bugsnag-laravel"
     env: "php"
     build_command: 
-        - "rm Gemfile"
+        - "rm -f Gemfile*"
         - "composer install"
   bugsnag-symfony:
     repo: "bugsnag/bugsnag-symfony"

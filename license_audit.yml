@@ -44,8 +44,8 @@ apps:
     repo: "bugsnag/bugsnag-react-native"
     env: "js"
     build_command:
+        - "rm Gemfile"
         - "npm install"
-        - "rm Gemfile.lock && bundle install --path vendor/cache"
   bugsnag-sourcemaps:
     repo: "bugsnag/bugsnag-sourcemaps"
     env: "js"
@@ -77,20 +77,19 @@ apps:
     branch: "tom/amend-ndk-script-overwrite"
     build_command: 
         - "./scripts/install-ndk.sh && ./gradlew build -x test -PABI_FILTERS=x86,arm64-v8a"
-        - "bundle install --path vendor/cache"
     license_finder_opts: '--gradle_command "./gradlew -x test -PABI_FILTERS=x86,arm64-v8a"'
   bugsnag-android-gradle-plugin:
     repo: "bugsnag/bugsnag-android-gradle-plugin"
     env: "java"
     build_command: 
+        - "rm Gemfile"
         - "./gradlew build -x test"
-        - "bundle install --path vendor/cache"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
     env: "java"
     build_command: 
+        - "rm Gemfile"
         - "./gradlew build -x test"
-        - "bundle install --path vendor/cache"
   bugsnag-php:
     repo: "bugsnag/bugsnag-php"
     env: "php"
@@ -100,8 +99,8 @@ apps:
     repo: "bugsnag/bugsnag-laravel"
     env: "php"
     build_command: 
+        - "rm Gemfile"
         - "composer install"
-        - "bundle install --path vendor/cache"
   bugsnag-symfony:
     repo: "bugsnag/bugsnag-symfony"
     env: "php"

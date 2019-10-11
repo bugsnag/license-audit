@@ -107,6 +107,12 @@
     :why: 'Alias: BSD/MIT'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
+- - :whitelist
+  - "ruby"
+  - :who: Tom
+    :why: 'Alias: BSD 2-clause'
+    :versions: []
+    :when: 2019-10-11 13:39:40.562524000 Z
 - - :approve
   - spdx-expression-parse
   - :who: Tom

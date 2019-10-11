@@ -83,3 +83,45 @@
     :why: 'Alias: WTFPL/MIT'
     :versions: []
     :when: 2019-10-11 09:35:59.031004000 Z
+- - :whitelist
+  - "(MIT AND BSD-3-Clause)"
+  - :who: Tom
+    :why: 'Alias: MIT/BSD'
+    :versions: []
+    :when: 2019-10-11 09:35:59.031004000 Z
+- - :whitelist
+  - "(MIT OR CC0-1.0)"
+  - :who: Tom
+    :why: 'Alias: MIT'
+    :versions: []
+    :when: 2019-10-11 09:46:51.418015000 Z
+- - :whitelist
+  - "3-Clause BSD License"
+  - :who: Tom
+    :why: 'Alias: BSD'
+    :versions: []
+    :when: 2019-10-11 13:39:40.562524000 Z
+- - :whitelist
+  - "BSD-3-Clause OR MIT"
+  - :who: Tom
+    :why: 'Alias: BSD/MIT'
+    :versions: []
+    :when: 2019-10-11 13:39:40.562524000 Z
+- - :approve
+  - spdx-expression-parse
+  - :who: Tom
+    :why: "Actually MIT - this is a license text parser and so License Checker is picking up the wrong strings"
+    :versions: []
+    :when: 2019-10-11 09:44:26.705071000 Z
+- - :approve
+  - power_assert
+  - :who: Tom
+    :why: "BSD 2-clause"
+    :versions: []
+    :when: 2019-10-11 13:39:19.757629000 Z
+- - :approve
+  - json-schema
+  - :who: Tom
+    :why: "Academic Free License (AFL) or BSD 3-clause"
+    :versions: []
+    :when: 2019-10-11 13:39:50.581728000 Z

@@ -29,6 +29,7 @@ apps:
     repo: "bugsnag/bugsnag-capistrano"
     env: "ruby"
     build_command: 
+        - "rm Gemfile.lock"
         - "bundle install --path vendor/cache"
   bugsnag-em:
     repo: "bugsnag/bugsnag-em"
@@ -44,7 +45,7 @@ apps:
     repo: "bugsnag/bugsnag-react-native"
     env: "js"
     build_command:
-        - "rm Gemfile"
+        - "rm -f Gemfile*"
         - "npm install"
   bugsnag-sourcemaps:
     repo: "bugsnag/bugsnag-sourcemaps"

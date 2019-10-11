@@ -71,3 +71,15 @@
     :why: 'Alias: BSD'
     :versions: []
     :when: 2019-07-04 09:53:34.654790000 Z
+- - :whitelist
+  - BSD
+  - :who: Simon
+    :why: 'All BSD is OK'
+    :versions: []
+    :when: 2019-10-11 09:32:48.757788000 Z
+- - :whitelist
+  - "(WTFPL OR MIT)"
+  - :who: Tom
+    :why: 'Alias: WTFPL/MIT'
+    :versions: []
+    :when: 2019-10-11 09:35:59.031004000 Z

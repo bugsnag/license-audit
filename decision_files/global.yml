@@ -96,6 +96,24 @@
     :versions: []
     :when: 2019-10-11 09:46:51.418015000 Z
 - - :whitelist
+  - "Mozilla Public License 1.1 (MPL 1.1)"
+  - :who: Tom
+    :why: 'Alias: MPL'
+    :versions: []
+    :when: 2019-10-11 09:46:51.418015000 Z
+- - :whitelist
+  - "MPLv2.0         MIT Licences"
+  - :who: Tom
+    :why: 'Alias: MPL'
+    :versions: []
+    :when: 2019-10-11 09:46:51.418015000 Z
+- - :whitelist
+  - "Mozilla Public License 2.0"
+  - :who: Tom
+    :why: 'Alias: MPL'
+    :versions: []
+    :when: 2019-10-11 09:46:51.418015000 Z
+- - :whitelist
   - "3-Clause BSD License"
   - :who: Tom
     :why: 'Alias: BSD'
@@ -105,6 +123,12 @@
   - "BSD-3-Clause OR MIT"
   - :who: Tom
     :why: 'Alias: BSD/MIT'
+    :versions: []
+    :when: 2019-10-11 13:39:40.562524000 Z
+- - :whitelist
+  - "MIT/X11"
+  - :who: Tom
+    :why: 'Alias: MIT'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
 - - :whitelist

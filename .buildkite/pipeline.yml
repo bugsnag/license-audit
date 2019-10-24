@@ -2,7 +2,7 @@ steps:
   - label: 'Ruby'
     timeout_in_minutes: 10
     plugins:
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.1.0:
           run: ruby
     artifact_paths:
       - build/*.txt
@@ -10,7 +10,7 @@ steps:
   - label: 'PHP'
     timeout_in_minutes: 10
     plugins:
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.1.0:
           run: php
     artifact_paths:
       - build/*.txt
@@ -18,7 +18,7 @@ steps:
   - label: 'JS'
     timeout_in_minutes: 10
     plugins:
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.1.0:
           run: js
     artifact_paths:
       - build/*.txt
@@ -26,7 +26,7 @@ steps:
   - label: 'Java'
     timeout_in_minutes: 10
     plugins:
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.1.0:
           run: java
     artifact_paths:
       - build/*.txt
@@ -34,7 +34,7 @@ steps:
   - label: 'Python'
     timeout_in_minutes: 10
     plugins:
-      - docker-compose#v3.0.3:
+      - docker-compose#v3.1.0:
           run: python
     artifact_paths:
       - build/*.txt

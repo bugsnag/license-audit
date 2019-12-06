@@ -38,11 +38,11 @@ The audit can be run with `docker-compose` which creates an image for each build
 
 ```
 docker-compose build
-docker-run ruby
-docker-run java
-docker-run js
-docker-run php
-docker-run python
+docker-compose run ruby
+docker-compose run java
+docker-compose run js
+docker-compose run php
+docker-compose run python
 ```
 The `docker-compose.yml` file parameterises the base image and APK's required. It also volumes the `apps`, `build` and `reports` directories so they are shared by each run and produce a single report. Most builds use a single `Dockerfile` in the `dockerfiles` directory, but more complex environments (e.g. Android) can use a custom `Dockerfile` by putting the path into the `docker-compoose.yml`.
 

@@ -42,17 +42,23 @@
     :versions: []
     :when: 2019-07-04 09:50:42.352199000 Z
 - - :whitelist
+  - Public Domain
+  - :who: Tom
+    :why: No conditions whatsoever which dedicates works to the public domain
+    :versions: []
+    :when: 2019-12-06 12:00:00.000000000 Z
+- - :whitelist
+  - "Zlib"
+  - :who: Tom
+    :why: Zlib (https://opensource.org/licenses/Zlib)
+    :versions: []
+    :when: 2019-12-06 12:00:00.000000000 Z
+- - :whitelist
   - "(Unlicense OR Apache-2.0)"
   - :who: Mark
     :why: 'Alias: Unlicense'
     :versions: []
     :when: 2019-07-04 09:51:46.160697000 Z
-- - :whitelist
-  - "MIT*"
-  - :who: Mark
-    :why: 'Alias: MIT'
-    :versions: []
-    :when: 2019-07-04 09:53:26.269207000 Z
 - - :whitelist
   - "(MIT OR Apache-2.0)"
   - :who: Mark
@@ -65,12 +71,6 @@
     :why: 'Alias: MIT'
     :versions: []
     :when: 2019-07-04 09:52:56.786616000 Z
-- - :whitelist
-  - BSD*
-  - :who: Mark
-    :why: 'Alias: BSD'
-    :versions: []
-    :when: 2019-07-04 09:53:34.654790000 Z
 - - :whitelist
   - BSD
   - :who: Simon
@@ -132,6 +132,12 @@
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
 - - :whitelist
+  - "Expat license"
+  - :who: Tom
+    :why: 'Alias: MIT (https://en.wikipedia.org/wiki/MIT_License#Variants)'
+    :versions: []
+    :when: 2019-10-11 13:39:40.562524000 Z
+- - :whitelist
   - "ruby"
   - :who: Tom
     :why: 'Alias: BSD 2-clause'
@@ -143,6 +149,12 @@
     :why: "Alias: BSD or Apache 2.0"
     :versions: []
     :when: 2019-10-15 12:29:00.000000000 Z
+- - :whitelist
+  - "(MIT AND Zlib)"
+  - :who: Tom
+    :why: 'Alias: MIT + Zlib'
+    :versions: []
+    :when: 2019-12-06 12:00:00.000000000 Z
 - - :approve
   - spdx-expression-parse
   - :who: Tom

@@ -133,10 +133,12 @@ apps:
     env: "python"
     build_command: 
         - "pip install -r dev_requirements.txt"
+        - "pip2 install -r dev_requirements.txt"  # <- See https://github.com/pivotal/LicenseFinder/issues/646
     license_finder_opts: "--pip-requirements-path=dev_requirements.txt"
   bugsnag-agent:
     repo: "bugsnag/bugsnag-agent"
     env: "python"
     build_command: 
         - "pip install -r dev_requirements.txt"
+        - "pip2 install -r dev_requirements.txt"  # <- See https://github.com/pivotal/LicenseFinder/issues/646
     license_finder_opts: "--pip-requirements-path=dev_requirements.txt"

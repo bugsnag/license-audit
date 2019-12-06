@@ -25,7 +25,7 @@ bundle exec license_audit
 Or just an individual one:
 
 ```
-bundle exec license_audit audit bugsnag-js
+bundle exec license_audit audit --app=bugsnag-js
 ````
 
 Each repo will be cloned into the `apps` directory and LicenseFinder is run from this location.

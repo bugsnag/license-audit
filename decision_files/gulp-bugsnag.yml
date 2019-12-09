@@ -1,0 +1,6 @@
+- - :approve
+  - spdx-expression-parse
+  - :who: Tom
+    :why: "Actually MIT - this is a license text parser and so License Checker is picking up the wrong strings (https://github.com/jslicense/spdx-expression-parse.js/blob/v1.0.4/LICENSE)"
+    :versions: ['1.0.4']
+    :when: 2019-10-11 09:44:26.705071000 Z

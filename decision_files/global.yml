@@ -1,4 +1,5 @@
 ---
+# Standard licenses
 - - :whitelist
   - MIT
   - :who: CTO
@@ -53,6 +54,14 @@
     :why: Zlib (https://opensource.org/licenses/Zlib)
     :versions: []
     :when: 2019-12-06 12:00:00.000000000 Z
+- - :whitelist
+  - "Python Software Foundation License"
+  - :who: Tom
+    :why: Python Software Foundation License (https://en.wikipedia.org/wiki/Python_Software_Foundation_License) - BSD style
+    :versions: []
+    :when: 2019-12-09 16:00:00.000000000 Z
+  
+# Aliases and combinations
 - - :whitelist
   - "(Unlicense OR Apache-2.0)"
   - :who: Mark

@@ -1,0 +1,6 @@
+- - :approve
+  - setuptools
+  - :who: Tom
+    :why: "Not detected by tool - MIT license (https://github.com/pypa/setuptools/blob/v40.8.0/LICENSE)"
+    :versions: ['40.8.0']
+    :when: 2019-12-09 15:00:00.000000000 Z

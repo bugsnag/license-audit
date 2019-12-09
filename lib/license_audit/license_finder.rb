@@ -33,10 +33,14 @@ module LicenseAudit
                 decision_file.puts line
             end
           end
-          decision_file.puts "# Repository-specific decisions"
-          File.open("#{source_decision_file_dir}/#{app.name}.yml") if File.exists?("#{source_decision_file_dir}/#{app.name}.yml") do | file |
-            while line = file.gets
-                decision_file.puts line
+
+          # decision_file.puts "#{source_decision_file_dir}#{app.name}.yml"
+          if File.exists?("#{source_decision_file_dir}#{app.name}.yml")
+            File.open("#{source_decision_file_dir}#{app.name}.yml") do | file |
+              decision_file.puts "# Repository-specific decisions"
+              while line = file.gets
+                  decision_file.puts line
+              end
             end
           end
         end

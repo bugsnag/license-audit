@@ -155,21 +155,12 @@
     :why: 'Alias: MIT + Zlib'
     :versions: []
     :when: 2019-12-06 12:00:00.000000000 Z
-- - :approve
-  - spdx-expression-parse
+- - :whitelist
+  - "Public Domain <http://unlicense.org>"
   - :who: Tom
-    :why: "Actually MIT - this is a license text parser and so License Checker is picking up the wrong strings"
+    :why: 'Alias: Public Domain'
     :versions: []
-    :when: 2019-10-11 09:44:26.705071000 Z
-- - :approve
-  - power_assert
-  - :who: Tom
-    :why: "BSD 2-clause"
-    :versions: []
-    :when: 2019-10-11 13:39:19.757629000 Z
-- - :approve
-  - json-schema
-  - :who: Tom
-    :why: "Academic Free License (AFL) or BSD 3-clause"
-    :versions: []
-    :when: 2019-10-11 13:39:50.581728000 Z
+    :when: 2019-12-09 12:00:00.000000000 Z
+
+
+    

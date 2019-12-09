@@ -28,8 +28,7 @@ apps:
   bugsnag-capistrano:
     repo: "bugsnag/bugsnag-capistrano"
     env: "ruby"
-    build_command: 
-        - "rm Gemfile.lock"
+    build_command:
         - "bundle install --path vendor/cache"
   bugsnag-em:
     repo: "bugsnag/bugsnag-em"

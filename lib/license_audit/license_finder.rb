@@ -33,10 +33,14 @@ module LicenseAudit
                 decision_file.puts line
             end
           end
-          decision_file.puts "# Repository-specific decisions"
-          File.open("#{source_decision_file_dir}/#{app.name}.yml") if File.exists?("#{source_decision_file_dir}/#{app.name}.yml") do | file |
-            while line = file.gets
-                decision_file.puts line
+
+          # decision_file.puts "#{source_decision_file_dir}#{app.name}.yml"
+          if File.exists?("#{source_decision_file_dir}#{app.name}.yml")
+            File.open("#{source_decision_file_dir}#{app.name}.yml") do | file |
+              decision_file.puts "# Repository-specific decisions"
+              while line = file.gets
+                  decision_file.puts line
+              end
             end
           end
         end
@@ -46,7 +50,10 @@ module LicenseAudit
             # Run the report first...
             main_run("license_finder report --format html #{app.license_finder_opts} > ../../reports/#{app.name}.html 2>&1")
             # Then re-run for the return code and stderr output to console
-            return main_run("license_finder #{app.license_finder_opts}")
+            output = []
+            success = main_run("license_finder #{app.license_finder_opts}", output)
+            # There should always be dependencies - return false if they weren't found to prevent us missing this
+            return success && !output.last().strip().eql?("No dependencies recognized!")
           end
         end
 
@@ -54,10 +61,15 @@ module LicenseAudit
 
       private
 
-      def main_run(command)
+      def main_run(command, output=[])
         exit_code = nil
         Open3.popen2e(command) do |_stdin, stdout_stderr, _wait_thread|
-          stdout_stderr.each { |l| puts l }
+          stdout_stderr.each { |l| 
+            begin
+              puts l
+              output.push(l)
+            end
+          }
           exit_code = _wait_thread.value
         end
         return exit_code == 0

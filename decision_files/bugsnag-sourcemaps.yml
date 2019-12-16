@@ -1,0 +1,18 @@
+- - :approve
+  - log-driver
+  - :who: Tom
+    :why: "Not detected by tool - ISC license (https://github.com/cainus/logdriver/blob/master/LICENSE)"
+    :versions: ['1.2.5']
+    :when: 2019-12-09 11:00:00.000000000 Z
+- - :approve
+  - watch
+  - :who: Tom
+    :why: "Not detected by tool - Apache 2.0 license (https://github.com/mikeal/watch/blob/v0.10.0/LICENSE)"
+    :versions: ['0.10.0']
+    :when: 2019-12-09 11:00:00.000000000 Z
+- - :approve
+  - spdx-expression-parse
+  - :who: Tom
+    :why: "Actually MIT - this is a license text parser and so License Checker is picking up the wrong strings (https://github.com/jslicense/spdx-expression-parse.js/blob/v1.0.4/LICENSE)"
+    :versions: ['1.0.4']
+    :when: 2019-10-11 09:44:26.705071000 Z

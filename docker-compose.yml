@@ -64,8 +64,10 @@ services:
             dockerfile: dockerfiles/Dockerfile
             args:
                 img: python:3.7-alpine
+                apks: python-dev python2 py2-pip libressl-dev musl-dev libffi-dev
         environment:
             env: python
+        # command: tail -f /dev/null
         volumes:
             - apps:/audit/apps
             - reports:/audit/reports

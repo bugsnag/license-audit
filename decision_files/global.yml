@@ -1,4 +1,5 @@
 ---
+# Standard licenses
 - - :whitelist
   - MIT
   - :who: CTO
@@ -42,17 +43,31 @@
     :versions: []
     :when: 2019-07-04 09:50:42.352199000 Z
 - - :whitelist
+  - Public Domain
+  - :who: Tom
+    :why: No conditions whatsoever which dedicates works to the public domain
+    :versions: []
+    :when: 2019-12-06 12:00:00.000000000 Z
+- - :whitelist
+  - "Zlib"
+  - :who: Tom
+    :why: Zlib (https://opensource.org/licenses/Zlib)
+    :versions: []
+    :when: 2019-12-06 12:00:00.000000000 Z
+- - :whitelist
+  - "Python Software Foundation License"
+  - :who: Tom
+    :why: Python Software Foundation License (https://en.wikipedia.org/wiki/Python_Software_Foundation_License) - BSD style
+    :versions: []
+    :when: 2019-12-09 16:00:00.000000000 Z
+  
+# Aliases and combinations
+- - :whitelist
   - "(Unlicense OR Apache-2.0)"
   - :who: Mark
     :why: 'Alias: Unlicense'
     :versions: []
     :when: 2019-07-04 09:51:46.160697000 Z
-- - :whitelist
-  - "MIT*"
-  - :who: Mark
-    :why: 'Alias: MIT'
-    :versions: []
-    :when: 2019-07-04 09:53:26.269207000 Z
 - - :whitelist
   - "(MIT OR Apache-2.0)"
   - :who: Mark
@@ -65,12 +80,6 @@
     :why: 'Alias: MIT'
     :versions: []
     :when: 2019-07-04 09:52:56.786616000 Z
-- - :whitelist
-  - BSD*
-  - :who: Mark
-    :why: 'Alias: BSD'
-    :versions: []
-    :when: 2019-07-04 09:53:34.654790000 Z
 - - :whitelist
   - BSD
   - :who: Simon
@@ -132,6 +141,12 @@
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
 - - :whitelist
+  - "Expat license"
+  - :who: Tom
+    :why: 'Alias: MIT (https://en.wikipedia.org/wiki/MIT_License#Variants)'
+    :versions: []
+    :when: 2019-10-11 13:39:40.562524000 Z
+- - :whitelist
   - "ruby"
   - :who: Tom
     :why: 'Alias: BSD 2-clause'
@@ -143,21 +158,18 @@
     :why: "Alias: BSD or Apache 2.0"
     :versions: []
     :when: 2019-10-15 12:29:00.000000000 Z
-- - :approve
-  - spdx-expression-parse
+- - :whitelist
+  - "(MIT AND Zlib)"
   - :who: Tom
-    :why: "Actually MIT - this is a license text parser and so License Checker is picking up the wrong strings"
+    :why: 'Alias: MIT + Zlib'
     :versions: []
-    :when: 2019-10-11 09:44:26.705071000 Z
-- - :approve
-  - power_assert
+    :when: 2019-12-06 12:00:00.000000000 Z
+- - :whitelist
+  - "Public Domain <http://unlicense.org>"
   - :who: Tom
-    :why: "BSD 2-clause"
+    :why: 'Alias: Public Domain'
     :versions: []
-    :when: 2019-10-11 13:39:19.757629000 Z
-- - :approve
-  - json-schema
-  - :who: Tom
-    :why: "Academic Free License (AFL) or BSD 3-clause"
-    :versions: []
-    :when: 2019-10-11 13:39:50.581728000 Z
+    :when: 2019-12-09 12:00:00.000000000 Z
+
+
+    

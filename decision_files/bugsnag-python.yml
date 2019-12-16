@@ -1,6 +1,6 @@
 - - :approve
-  - packaging
+  - setuptools
   - :who: Tom
-    :why: "Alias: BSD"
-    :versions: []
-    :when: 2019-10-11 13:39:50.581728000 Z
+    :why: "Not detected by tool - MIT license (https://github.com/pypa/setuptools/blob/v40.8.0/LICENSE)"
+    :versions: ['40.8.0']
+    :when: 2019-12-09 15:00:00.000000000 Z

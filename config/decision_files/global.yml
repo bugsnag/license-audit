@@ -1,60 +1,60 @@
 ---
 # Standard licenses
-- - :whitelist
+- - :permit
   - MIT
   - :who: CTO
     :why: Always OK
     :versions: []
     :when: 2019-07-02 07:23:26.514774000 Z
-- - :whitelist
+- - :permit
   - Apache 2.0
   - :who: CTO
     :why: Always OK
     :versions: []
     :when: 2019-07-02 19:58:18.853239000 Z
-- - :whitelist
+- - :permit
   - ISC
   - :who: Mark
     :why: Identical to the MIT
     :versions: []
     :when: 2019-07-04 08:49:37.843141000 Z
-- - :whitelist
+- - :permit
   - New BSD
   - :who: Mark
     :why: Almost unlimited freedom
     :versions: []
     :when: 2019-07-04 09:24:13.805592000 Z
-- - :whitelist
+- - :permit
   - Simplified BSD
   - :who: Mark
     :why: Almost unlimited freedom
     :versions: []
     :when: 2019-07-04 09:24:28.872528000 Z
-- - :whitelist
+- - :permit
   - WTFPL
   - :who: Mark
     :why: Almost unlimited freedom
     :versions: []
     :when: 2019-07-04 09:37:11.555069000 Z
-- - :whitelist
+- - :permit
   - Unlicense
   - :who: Mark
     :why: No conditions whatsoever which dedicates works to the public domain
     :versions: []
     :when: 2019-07-04 09:50:42.352199000 Z
-- - :whitelist
+- - :permit
   - Public Domain
   - :who: Tom
     :why: No conditions whatsoever which dedicates works to the public domain
     :versions: []
     :when: 2019-12-06 12:00:00.000000000 Z
-- - :whitelist
+- - :permit
   - "Zlib"
   - :who: Tom
     :why: Zlib (https://opensource.org/licenses/Zlib)
     :versions: []
     :when: 2019-12-06 12:00:00.000000000 Z
-- - :whitelist
+- - :permit
   - "Python Software Foundation License"
   - :who: Tom
     :why: Python Software Foundation License (https://en.wikipedia.org/wiki/Python_Software_Foundation_License) - BSD style
@@ -62,114 +62,111 @@
     :when: 2019-12-09 16:00:00.000000000 Z
   
 # Aliases and combinations
-- - :whitelist
+- - :permit
   - "(Unlicense OR Apache-2.0)"
   - :who: Mark
     :why: 'Alias: Unlicense'
     :versions: []
     :when: 2019-07-04 09:51:46.160697000 Z
-- - :whitelist
+- - :permit
   - "(MIT OR Apache-2.0)"
   - :who: Mark
     :why: 'Alias: MIT'
     :versions: []
     :when: 2019-07-04 09:52:26.269207000 Z
-- - :whitelist
+- - :permit
   - "(BSD-2-Clause OR MIT OR Apache-2.0)"
   - :who: Mark
     :why: 'Alias: MIT'
     :versions: []
     :when: 2019-07-04 09:52:56.786616000 Z
-- - :whitelist
+- - :permit
   - BSD
   - :who: Simon
     :why: 'All BSD is OK'
     :versions: []
     :when: 2019-10-11 09:32:48.757788000 Z
-- - :whitelist
+- - :permit
   - "(WTFPL OR MIT)"
   - :who: Tom
     :why: 'Alias: WTFPL/MIT'
     :versions: []
     :when: 2019-10-11 09:35:59.031004000 Z
-- - :whitelist
+- - :permit
   - "(MIT AND BSD-3-Clause)"
   - :who: Tom
     :why: 'Alias: MIT/BSD'
     :versions: []
     :when: 2019-10-11 09:35:59.031004000 Z
-- - :whitelist
+- - :permit
   - "(MIT OR CC0-1.0)"
   - :who: Tom
     :why: 'Alias: MIT'
     :versions: []
     :when: 2019-10-11 09:46:51.418015000 Z
-- - :whitelist
+- - :permit
   - "Mozilla Public License 1.1 (MPL 1.1)"
   - :who: Tom
     :why: 'Alias: MPL'
     :versions: []
     :when: 2019-10-11 09:46:51.418015000 Z
-- - :whitelist
+- - :permit
   - "MPLv2.0, MIT Licences"
   - :who: Tom
     :why: 'Alias: MPL'
     :versions: []
     :when: 2019-10-11 09:46:51.418015000 Z
-- - :whitelist
+- - :permit
   - "Mozilla Public License 2.0"
   - :who: Tom
     :why: 'Alias: MPL'
     :versions: []
     :when: 2019-10-11 09:46:51.418015000 Z
-- - :whitelist
+- - :permit
   - "3-Clause BSD License"
   - :who: Tom
     :why: 'Alias: BSD'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
-- - :whitelist
+- - :permit
   - "BSD-3-Clause OR MIT"
   - :who: Tom
     :why: 'Alias: BSD/MIT'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
-- - :whitelist
+- - :permit
   - "MIT/X11"
   - :who: Tom
     :why: 'Alias: MIT'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
-- - :whitelist
+- - :permit
   - "Expat license"
   - :who: Tom
     :why: 'Alias: MIT (https://en.wikipedia.org/wiki/MIT_License#Variants)'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
-- - :whitelist
+- - :permit
   - "ruby"
   - :who: Tom
     :why: 'Alias: BSD 2-clause'
     :versions: []
     :when: 2019-10-11 13:39:40.562524000 Z
-- - :whitelist
+- - :permit
   - "BSD or Apache License, Version 2.0"
   - :who: Tom
     :why: "Alias: BSD or Apache 2.0"
     :versions: []
     :when: 2019-10-15 12:29:00.000000000 Z
-- - :whitelist
+- - :permit
   - "(MIT AND Zlib)"
   - :who: Tom
     :why: 'Alias: MIT + Zlib'
     :versions: []
     :when: 2019-12-06 12:00:00.000000000 Z
-- - :whitelist
+- - :permit
   - "Public Domain <http://unlicense.org>"
   - :who: Tom
     :why: 'Alias: Public Domain'
     :versions: []
     :when: 2019-12-09 12:00:00.000000000 Z
-
-
-    

@@ -27,9 +27,11 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.3'
 
   spec.add_development_dependency "bundler", ">= 1.13"
+  spec.add_development_dependency "parallel", "< 1.20.0"
   spec.add_development_dependency "rubocop", "~> 0.55.0"
 
-  spec.add_runtime_dependency "thor", "~> 0.19"
+  spec.add_runtime_dependency "license_finder", "~> 6.0"
+  spec.add_runtime_dependency "thor", "~> 1.0"
   spec.add_runtime_dependency "rainbow", "~> 3.0.0"
   if RUBY_VERSION >= '2.4'
     spec.add_runtime_dependency "rubyzip", "~> 2.0"

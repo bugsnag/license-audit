@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 require 'open3'
-require 'rainbow'
+require 'date'
+require 'time'
 
 module LicenseAudit
   class Git
@@ -32,12 +33,26 @@ module LicenseAudit
         end
       end
 
-      def git(*command, title, location)
-        output = Rainbow("#{title}:\n").green
+      def git(*command, location)
         command_output = main_run("cd #{location} && git #{command.join(' ')}")
         output_without_blank_lines = command_output.each_line.reject { |l| l.strip.empty? }
+        output = ""
         output_without_blank_lines.each { |line| output += "   #{line}" }
-        puts output
+        output
+      end
+
+      def get_recently_modified_branches(location, num_days)
+        command_output = main_run("cd #{location} && git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname)' refs/remotes")
+        branches = Set.new
+        output_without_blank_lines = command_output.each_line.reject { |l| l.strip.empty? }
+        output_without_blank_lines.each { |line| 
+          fields = line.split(' ')
+          if Date.parse(fields[0]) >= Date.today - num_days
+            branch_name = fields[1].sub("refs/remotes/origin/", "")
+            branches.add(branch_name) unless branch_name == "HEAD"
+          end
+        }
+        return branches
       end
 
       private

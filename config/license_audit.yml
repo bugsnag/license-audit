@@ -13,40 +13,45 @@ apps:
     repo: "bugsnag/bugsnag-ruby"
     env: "ruby"
     build_command: 
-        - "bundle install --path vendor/cache --with coverage test rubocop sidekiq doc maze"
+        - "bundle install --with coverage test rubocop sidekiq doc"
   bugsnag-dsym-upload:
     repo: "bugsnag/bugsnag-dsym-upload"
     env: "ruby"
+    working_dir:
+        - "tools/fastlane-plugin"
     build_command: 
-        - "make bootstrap"
-        - "bundle install --path vendor/cache"
+        - "bundle install"
   bugsnag-api-ruby:
     repo: "bugsnag/bugsnag-api-ruby"
     env: "ruby"
     build_command: 
-        - "bundle install --path vendor/cache"
+        - "bundle install"
   bugsnag-capistrano:
     repo: "bugsnag/bugsnag-capistrano"
     env: "ruby"
     build_command: 
-        - "rm -f Gemfile.lock"
-        - "bundle install --path vendor/cache --with test"
+        - "bundle install --with test"
   bugsnag-em:
     repo: "bugsnag/bugsnag-em"
     env: "ruby"
     build_command: 
-        - "bundle install --path vendor/cache"
+        - "bundle install"
   bugsnag-js:
     repo: "bugsnag/bugsnag-js"
-    env: "js"
-    build_command: 
-        - "npm install"
-  bugsnag-react-native:
-    repo: "bugsnag/bugsnag-react-native"
     env: "js"
     build_command:
         - "rm -f Gemfile*"
         - "npm install"
+    working_dir:
+        - "."
+        - "packages/*"
+    # license_finder_opts: "--enabled-package-manager npm"  # <- Option awaiting release in license_finder > 6.9.0
+  bugsnag-source-maps:
+    repo: "bugsnag/bugsnag-source-maps"
+    env: "js"
+    build_command: 
+        - "npm install"
+    branch: "next"
   bugsnag-sourcemaps:
     repo: "bugsnag/bugsnag-sourcemaps"
     env: "js"
@@ -75,34 +80,36 @@ apps:
   bugsnag-android:
     repo: "bugsnag/bugsnag-android"
     env: "java"
-    branch: "tom/amend-ndk-script-overwrite"
     build_command: 
         - "rm -f Gemfile*"
-        - "./scripts/install-ndk.sh && ./gradlew build -x test -PABI_FILTERS=x86,arm64-v8a"
-    license_finder_opts: '--gradle_command "./gradlew -x test -PABI_FILTERS=x86,arm64-v8a"'
-  bugsnag-android-gradle-plugin:
-    repo: "bugsnag/bugsnag-android-gradle-plugin"
-    env: "java"
-    build_command: 
-        - "rm -f Gemfile*"
+        - "./scripts/install-ndk.sh"
         - "./gradlew build -x test"
+    # license_finder_opts: '--enabled-package-manager gradle' # <- Option awaiting release in license_finder > 6.9.0
+  # bugsnag-android-gradle-plugin:           # <- Currently no licenses detected by tool
+  #   repo: "bugsnag/bugsnag-android-gradle-plugin"
+  #   env: "java"
+  #   build_command: 
+  #       - "./gradlew build -x test"
+  #   license_finder_opts: "--enabled-package-manager gradle"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
     env: "java"
     build_command: 
         - "rm -f Gemfile*"
         - "./gradlew build -x test"
+    # license_finder_opts: "--enabled-package-manager gradle"
   bugsnag-php:
     repo: "bugsnag/bugsnag-php"
     env: "php"
     build_command: 
-        - "composer install"
+        - "composer install --no-interaction --prefer-dist"
   bugsnag-laravel:
     repo: "bugsnag/bugsnag-laravel"
     env: "php"
     build_command: 
         - "rm -f Gemfile*"
-        - "composer install"
+        - "COMPOSER_MEMORY_LIMIT=-1 composer install"
+    # license_finder_opts: "--enabled-package-manager composer"
   bugsnag-symfony:
     repo: "bugsnag/bugsnag-symfony"
     env: "php"
@@ -132,13 +139,13 @@ apps:
     repo: "bugsnag/bugsnag-python"
     env: "python"
     build_command: 
+        - "pip install pip==20.0.2" # See https://github.com/pivotal/LicenseFinder/issues/714
         - "pip install -r dev_requirements.txt"
-        - "pip2 install -r dev_requirements.txt"  # <- See https://github.com/pivotal/LicenseFinder/issues/646
-    license_finder_opts: "--pip-requirements-path=dev_requirements.txt"
+    license_finder_opts: "--pip-requirements-path=dev_requirements.txt --python-version=3"
   bugsnag-agent:
     repo: "bugsnag/bugsnag-agent"
     env: "python"
     build_command: 
+        - "pip install pip==20.0.2" # See https://github.com/pivotal/LicenseFinder/issues/714
         - "pip install -r dev_requirements.txt"
-        - "pip2 install -r dev_requirements.txt"  # <- See https://github.com/pivotal/LicenseFinder/issues/646
-    license_finder_opts: "--pip-requirements-path=dev_requirements.txt"
+    license_finder_opts: "--pip-requirements-path=dev_requirements.txt --python-version=3"

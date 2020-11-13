@@ -4,7 +4,7 @@ require 'yaml'
 
 module LicenseAudit
   class Config
-    CONFIG_FILENAME = 'license_audit.yml'
+    CONFIG_FILENAME = 'config/license_audit.yml'
 
     def self.project_root
       @project_root ||= Pathname.getwd.ascend.find { |pth| (pth + CONFIG_FILENAME).file? }

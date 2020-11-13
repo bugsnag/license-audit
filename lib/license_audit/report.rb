@@ -26,19 +26,19 @@ module LicenseAudit
         
       end
 
-      def addAppRun(app, build_succeeded, audit_succeeded)
+      def addAppRun(app, branch, working_dir, build_succeeded, audit_succeeded)
 
-        output_text = PLACEHOLDER_APP_START % [app.name]
-        output_text += "<tr>\n<td>\n<a href=\"https://github.com/#{app.repo}\">#{app.name}</a> "
-        output_text += "[<a href=\"../apps/#{app.name}/doc/dependency_decisions.yml\">decision file</a>]\n</td>\n"
-        output_text += "<td>\n<a href=\"../build/#{app.name}.txt\">"
+        output_text = PLACEHOLDER_APP_START % [app.report_name(branch, working_dir)]
+        output_text += "<tr>\n<td>\n<a href=\"https://github.com/#{app.repo}/tree/#{branch}/#{working_dir}\">#{app.report_readable_name(branch, working_dir)}</a> "
+        output_text += "[<a href=\"#{File.join(app.location, working_dir)}/doc/dependency_decisions.yml\">decision file</a>]\n</td>\n"
+        output_text += "<td>\n<a href=\"../build/#{app.report_name(branch, working_dir)}.txt\">"
         
         if (build_succeeded)
           output_text += "<span class=\"badge badge-success\">&#x2713;</span></a>\n</td>\n"
           if (audit_succeeded)
-            output_text += "<td>\n<a href=\"../reports/#{app.name}.html\"><span class=\"badge badge-success\">&#x2713;</span>\n</td>\n"
+            output_text += "<td>\n<a href=\"../reports/#{app.report_name(branch, working_dir)}.html\"><span class=\"badge badge-success\">&#x2713;</span>\n</td>\n"
           else
-            output_text += "<td>\n<a href=\"../reports/#{app.name}.html\"><span class=\"badge badge-important\">&#x2717;</span>\n</td>\n"
+            output_text += "<td>\n<a href=\"../reports/#{app.report_name(branch, working_dir)}.html\"><span class=\"badge badge-important\">&#x2717;</span>\n</td>\n"
           end
         else
           output_text += "<span class=\"badge badge-important\">&#x2717;</span></a>\n</td>\n"
@@ -46,13 +46,13 @@ module LicenseAudit
         end
 
         output_text += "</tr>\n"
-        output_text += PLACEHOLDER_APP_END % [app.name]
+        output_text += PLACEHOLDER_APP_END % [app.report_name(branch, working_dir)]
         output_text += "\n"
 
         report_text = readFromFile()
 
-        if report_text.include? PLACEHOLDER_APP_START % [app.name]
-          report_text = report_text.sub(/#{PLACEHOLDER_APP_START % [app.name]}.*#{PLACEHOLDER_APP_END % [app.name]}/, output_text)
+        if report_text.include? PLACEHOLDER_APP_START % [app.report_name(branch, working_dir)]
+          report_text = report_text.sub(/#{PLACEHOLDER_APP_START % [app.report_name(branch, working_dir)]}.*#{PLACEHOLDER_APP_END % [app.report_name(branch, working_dir)]}/m, output_text)
         else
           report_text = report_text.sub(/#{PLACEHOLDER_TABLE_BOTTOM}/, output_text + PLACEHOLDER_TABLE_BOTTOM)
         end

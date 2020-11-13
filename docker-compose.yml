@@ -7,13 +7,14 @@ services:
             dockerfile: dockerfiles/Dockerfile
             args:
                 img: ruby:2.5-alpine
-                apks: 
+                apks: libcurl curl curl-dev
         environment:
             env: ruby
         volumes:
             - apps:/audit/apps
             - reports:/audit/reports
             - build:/audit/build
+            - config:/audit/config
     php:
         image: license-audit:php
         build:
@@ -28,6 +29,7 @@ services:
             - apps:/audit/apps
             - reports:/audit/reports
             - build:/audit/build
+            - config:/audit/config
     js:
         image: license-audit:js
         build:
@@ -42,6 +44,7 @@ services:
             - apps:/audit/apps
             - reports:/audit/reports
             - build:/audit/build
+            - config:/audit/config
     java:
         image: license-audit:java
         build:
@@ -52,26 +55,26 @@ services:
                 apks: gradle jq
         environment:
             env: java
-        # command: tail -f /dev/null
         volumes:
             - apps:/audit/apps
             - reports:/audit/reports
             - build:/audit/build
+            - config:/audit/config
     python:
         image: license-audit:python
         build:
             context: .
             dockerfile: dockerfiles/Dockerfile
             args:
-                img: python:3.7-alpine
-                apks: python-dev python2 py2-pip libressl-dev musl-dev libffi-dev
+                img: python:3.8-alpine
+                apks: python2 libressl-dev musl-dev libffi-dev
         environment:
             env: python
-        # command: tail -f /dev/null
         volumes:
             - apps:/audit/apps
             - reports:/audit/reports
             - build:/audit/build
+            - config:/audit/config
 volumes:
   apps:
     driver: local
@@ -91,3 +94,12 @@ volumes:
       type: none
       o: bind
       device: $PWD/build
+  config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $PWD/config
+
+# Add the following line to an environment group keep docker running for inspection:
+# command: tail -f /dev/null

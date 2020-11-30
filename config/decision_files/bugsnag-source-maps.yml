@@ -5,12 +5,6 @@
     :versions: []
     :when: 2020-11-20 17:23:10.865787500 Z
 - - :approve
-  - webpack
-  - :who: Tom
-    :why: "Not detected by tool - MIT license (https://github.com/webpack/webpack/blob/v4.41.2/LICENSE)"
-    :versions: []
-    :when: 2019-12-09 15:00:00.000000000 Z
-- - :approve
   - "spdx-exceptions"
   - :who: Tom
     :why: License audit tool required through lerna - Creative Commons 3.0

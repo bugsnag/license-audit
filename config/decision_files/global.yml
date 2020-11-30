@@ -60,6 +60,12 @@
     :why: Python Software Foundation License (https://en.wikipedia.org/wiki/Python_Software_Foundation_License) - BSD style
     :versions: []
     :when: 2019-12-09 16:00:00.000000000 Z
+- - :permit
+  - "Artistic-2.0"
+  - :who: Tom
+    :why: Artistic 2.0
+    :versions: []
+    :when: 2020-11-19 16:00:00.000000000 Z
   
 # Aliases and combinations
 - - :permit
@@ -170,3 +176,21 @@
     :why: 'Alias: Public Domain'
     :versions: []
     :when: 2019-12-09 12:00:00.000000000 Z
+- - :permit
+  - "MIT, 2-clause BSD"
+  - :who: Tom
+    :why: 'Alias: BSD 2-clause'
+    :versions: []
+    :when: 2020-11-19 12:00:00.000000000 Z
+- - :permit
+  - "2-clause BSDL"
+  - :who: Tom
+    :why: 'Alias: BSD 2-clause'
+    :versions: []
+    :when: 2020-11-19 12:00:00.000000000 Z
+- - :permit
+  - "(LGPL-2.0 or MIT)"
+  - :who: Tom
+    :why: 'Alias: MIT'
+    :versions: []
+    :when: 2019-11-19 16:00:00.000000000 Z

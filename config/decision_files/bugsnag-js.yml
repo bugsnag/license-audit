@@ -5,11 +5,23 @@
     :versions: []
     :when: 2020-11-20 17:23:10.865787500 Z
 - - :approve
-  - webpack
+  - "expo"
   - :who: Tom
-    :why: "Not detected by tool - MIT license (https://github.com/webpack/webpack/blob/v4.41.2/LICENSE)"
+    :why: Used as a peer dependency as is MIT licensed
     :versions: []
-    :when: 2019-12-09 15:00:00.000000000 Z
+    :when: 2020-11-20 16:00:00.000000000 Z
+- - :approve
+  - "react"
+  - :who: Tom
+    :why: Used as a peer dependency as is MIT licensed
+    :versions: []
+    :when: 2020-11-20 16:00:00.000000000 Z
+- - :approve
+  - "react-native"
+  - :who: Tom
+    :why: Used as a peer dependency as is MIT licensed
+    :versions: []
+    :when: 2020-11-20 16:00:00.000000000 Z
 - - :approve
   - "spdx-exceptions"
   - :who: Tom

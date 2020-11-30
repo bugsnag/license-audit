@@ -1,6 +1,13 @@
 - - :approve
-  - power_assert
+  - colored
   - :who: Tom
-    :why: "Not detected by tool - BSD 2-clause license (https://github.com/k-tsj/power_assert/blob/v1.1.5/COPYING)"
-    :versions: ['1.1.5']
-    :when: 2019-12-09 15:00:00.000000000 Z
+    :why: "No license declared in Gem, but MIT in Github: https://github.com/defunkt/colored/"
+    :versions: ['1.2']
+    :when: 2020-11-19 12:00:00.000000000 Z
+- - :approve
+  - rchardet
+  - :who: Tom
+    :why: "LGPL license required as part of git gem. No modification to source, so OK to use"
+    :versions: ['1.8.0']
+    :when: 2020-11-19 12:00:00.000000000 Z
+

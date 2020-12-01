@@ -1,6 +1,6 @@
 steps:
   - label: 'Ruby'
-    timeout_in_minutes: 30
+    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: ruby
@@ -10,7 +10,7 @@ steps:
       - build/*.txt
       - reports/*.html
   - label: 'PHP'
-    timeout_in_minutes: 30
+    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: php
@@ -20,7 +20,7 @@ steps:
       - build/*.txt
       - reports/*.html
   - label: 'JS'
-    timeout_in_minutes: 30
+    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: js
@@ -30,7 +30,7 @@ steps:
       - build/*.txt
       - reports/*.html
   - label: 'Java'
-    timeout_in_minutes: 30
+    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: java
@@ -40,7 +40,7 @@ steps:
       - build/*.txt
       - reports/*.html
   - label: 'Python'
-    timeout_in_minutes: 30
+    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: python

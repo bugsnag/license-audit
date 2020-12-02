@@ -1,51 +1,46 @@
 steps:
   - label: 'Ruby'
-    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: ruby
           env:
-            - recent=1
+            - recent=2
     artifact_paths:
       - build/*.txt
       - reports/*.html
   - label: 'PHP'
-    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: php
           env:
-            - recent=1
+            - recent=2
     artifact_paths:
       - build/*.txt
       - reports/*.html
   - label: 'JS'
-    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: js
           env:
-            - recent=1
+            - recent=2
     artifact_paths:
       - build/*.txt
       - reports/*.html
   - label: 'Java'
-    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: java
           env:
-            - recent=1
+            - recent=2
     artifact_paths:
       - build/*.txt
       - reports/*.html
   - label: 'Python'
-    timeout_in_minutes: 60
     plugins:
       - docker-compose#v3.7.0:
           run: python
           env:
-            - recent=1
+            - recent=2
     artifact_paths:
       - build/*.txt
       - reports/*.html

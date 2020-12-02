@@ -35,6 +35,18 @@ WORKDIR /audit
 
 RUN bundle install
 
+ENV app=
+ENV build=
+ENV clean=
+ENV dir=
 ENV env=
+ENV recent=
+ENV wait=
 
-CMD bundle exec license_audit audit --env=$env
+CMD bundle exec license_audit audit --app=${app} \
+                                    --build=${build} \
+                                    --clean=${clean} \
+                                    --dir=${dir} \
+                                    --env=${env} \
+                                    --recent=${recent} \
+                                    --wait=${wait}

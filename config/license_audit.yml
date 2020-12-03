@@ -82,7 +82,6 @@ apps:
     env: "java"
     build_command: 
         - "rm -f Gemfile*"
-        - "./scripts/install-ndk.sh"
         - "./gradlew build -x test"
     # license_finder_opts: '--enabled-package-manager gradle' # <- Option awaiting release in license_finder > 6.9.0
   # bugsnag-android-gradle-plugin:           # <- Currently no licenses detected by tool

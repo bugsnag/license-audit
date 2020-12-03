@@ -45,7 +45,7 @@ apps:
     working_dir:
         - "."
         - "packages/*"
-    # license_finder_opts: "--enabled-package-manager npm"  # <- Option awaiting release in license_finder > 6.9.0
+    license_finder_opts: "--enabled-package-managers npm"
   bugsnag-source-maps:
     repo: "bugsnag/bugsnag-source-maps"
     env: "js"
@@ -81,22 +81,20 @@ apps:
     repo: "bugsnag/bugsnag-android"
     env: "java"
     build_command: 
-        - "rm -f Gemfile*"
         - "./gradlew build -x test"
-    # license_finder_opts: '--enabled-package-manager gradle' # <- Option awaiting release in license_finder > 6.9.0
+    license_finder_opts: "--enabled-package-managers gradle"
   # bugsnag-android-gradle-plugin:           # <- Currently no licenses detected by tool
   #   repo: "bugsnag/bugsnag-android-gradle-plugin"
   #   env: "java"
   #   build_command: 
   #       - "./gradlew build -x test"
-  #   license_finder_opts: "--enabled-package-manager gradle"
+  #   license_finder_opts: "--enabled-package-managers gradle"
   bugsnag-java:
     repo: "bugsnag/bugsnag-java"
     env: "java"
     build_command: 
-        - "rm -f Gemfile*"
         - "./gradlew build -x test"
-    # license_finder_opts: "--enabled-package-manager gradle"
+    license_finder_opts: "--enabled-package-managers gradle"
   bugsnag-php:
     repo: "bugsnag/bugsnag-php"
     env: "php"
@@ -106,9 +104,8 @@ apps:
     repo: "bugsnag/bugsnag-laravel"
     env: "php"
     build_command: 
-        - "rm -f Gemfile*"
         - "COMPOSER_MEMORY_LIMIT=-1 composer install"
-    # license_finder_opts: "--enabled-package-manager composer"
+    license_finder_opts: "--enabled-package-managers composer"
   bugsnag-symfony:
     repo: "bugsnag/bugsnag-symfony"
     env: "php"

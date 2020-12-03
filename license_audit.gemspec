@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "parallel", "< 1.20.0"
   spec.add_development_dependency "rubocop", "~> 0.55.0"
 
-  spec.add_runtime_dependency "license_finder", "~> 6.0"
+  spec.add_runtime_dependency "license_finder", ">= 6.10"
   spec.add_runtime_dependency "thor", "~> 1.0"
   spec.add_runtime_dependency "rainbow", "~> 3.0.0"
   if RUBY_VERSION >= '2.4'

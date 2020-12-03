@@ -12,6 +12,7 @@ module LicenseAudit
         app.build_command.each { |command|
             Bundler.with_original_env do
                 Dir.chdir File.join(app.location, working_dir) do
+                    puts "  " + command
                     return false unless main_run("#{command} >> #{Config.project_root}/build/#{app.report_name(branch, working_dir)}.txt 2>&1")
                 end
             end
@@ -45,10 +46,11 @@ module LicenseAudit
           Dir.chdir File.join(app.location, working_dir) do
             main_run("license_finder project_name add \"#{app.report_readable_name(branch, working_dir)}\"")
             # Run the report first...
-            main_run("license_finder report --format html #{app.license_finder_opts} > #{Config.project_root}/reports/#{app.report_name(branch, working_dir)}.html 2>&1")
+            main_run("license_finder report --format html #{app.license_finder_opts} --save #{Config.project_root}/reports/#{app.report_name(branch, working_dir)}.html")
             # Then re-run for the return code and stderr output to console
             output = []
-            success = main_run("license_finder #{app.license_finder_opts}", output)
+            puts "license_finder #{app.license_finder_opts}"
+            success = main_run("license_finder #{app.license_finder_opts}", output, true)
             # There should always be dependencies - return false if they weren't found to prevent us missing this
             return success && !output.last().strip().eql?("No dependencies recognized!")
           end
@@ -56,14 +58,22 @@ module LicenseAudit
 
       end
 
+      def version()
+        Bundler.with_original_env do
+          output = []
+          main_run("license_finder version", output)
+          output[0]
+        end
+      end
+
       private
 
-      def main_run(command, output=[])
+      def main_run(command, output=[], console_output=false)
         exit_code = nil
         Open3.popen2e(command) do |_stdin, stdout_stderr, _wait_thread|
           stdout_stderr.each { |l| 
             begin
-              puts l
+              puts l if console_output
               output.push(l)
             end
           }

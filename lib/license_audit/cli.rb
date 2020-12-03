@@ -48,6 +48,8 @@ module LicenseAudit
         filtered_apps = filtered_apps.select{ |key, app| app.env == options[:env] }
       end
 
+      puts Rainbow("License Finder version: #{LicenseFinder.version()}").blue
+
       if filtered_apps.length == 0
         puts
         puts Rainbow("No apps found that match specified arguments").underline.red.inverse

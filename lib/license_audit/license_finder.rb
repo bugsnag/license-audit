@@ -45,14 +45,18 @@ module LicenseAudit
         Bundler.with_original_env do
           Dir.chdir File.join(app.location, working_dir) do
             main_run("license_finder project_name add \"#{app.report_readable_name(branch, working_dir)}\"")
-            # Run the report first...
-            main_run("license_finder report --format html #{app.license_finder_opts} --save #{Config.project_root}/reports/#{app.report_name(branch, working_dir)}.html")
-            # Then re-run for the return code and stderr output to console
-            output = []
-            puts "license_finder #{app.license_finder_opts}"
-            success = main_run("license_finder #{app.license_finder_opts}", output, true)
-            # There should always be dependencies - return false if they weren't found to prevent us missing this
-            return success && !output.last().strip().eql?("No dependencies recognized!")
+            
+            report_file = "#{Config.project_root}/reports/#{app.report_name(branch, working_dir)}.html"
+
+            main_run("license_finder report --format html #{app.license_finder_opts} --save #{report_file}")
+            
+            # The exit code only refers to the generation of the report, not the success of the audit
+            # Read the report to make sure there are no failure badges and >1 dependencies scanned.
+            failure_conditions = File.open report_file do |file|
+              file.find { |line| line =~ /(badge badge\-important|<h4>0 total<\/h4>)/ }
+            end
+
+            return failure_conditions.nil?
           end
         end
 

@@ -84,7 +84,7 @@ module LicenseAudit
 
         recent_branches.each { |branch|
 
-          if !options.key?(:clean) || options[:clean].to_s.downcase == "true"
+          if options.key?(:clean) && !options[:clean].empty? && options[:clean].to_s.downcase == "true"
             puts
             puts Rainbow("Reverting local changes").blue
             Git.git('checkout -- .', app.location)

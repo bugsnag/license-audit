@@ -40,7 +40,6 @@ apps:
     repo: "bugsnag/bugsnag-js"
     env: "js"
     build_command:
-        - "rm -f Gemfile*"
         - "npm install"
     working_dir:
         - "."

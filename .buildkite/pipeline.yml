@@ -1,5 +1,6 @@
 steps:
   - label: 'Ruby'
+    if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
       - docker-compose#v3.7.0:
@@ -9,7 +10,9 @@ steps:
     artifact_paths:
       - build/*.txt
       - reports/*.html
+
   - label: 'PHP'
+    if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
       - docker-compose#v3.7.0:
@@ -19,7 +22,9 @@ steps:
     artifact_paths:
       - build/*.txt
       - reports/*.html
+
   - label: 'JS'
+    if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
       - docker-compose#v3.7.0:
@@ -29,7 +34,9 @@ steps:
     artifact_paths:
       - build/*.txt
       - reports/*.html
+
   - label: 'Java'
+    if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
       - docker-compose#v3.7.0:
@@ -39,7 +46,9 @@ steps:
     artifact_paths:
       - build/*.txt
       - reports/*.html
+
   - label: 'Python'
+    if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
       - docker-compose#v3.7.0:

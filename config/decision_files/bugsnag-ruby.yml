@@ -1,7 +1,24 @@
-- - :approve
-  - power_assert
-  - :who: Tom
-    :why: "Not detected by tool - BSD 2-clause license (https://github.com/k-tsj/power_assert/blob/v1.1.3/COPYING)"
-    :versions: ['1.1.3']
-    :when: 2019-12-09 15:00:00.000000000 Z
-
+- - :ignore_group
+  - sidekiq
+  - :who: Steve
+    :why: Group does not include runtime dependencies of the notifier
+    :versions: []
+    :when: 2021-04-14 17:34:34.662850000 Z
+- - :ignore_group
+  - test
+  - :who: Steve
+    :why: Group does not include runtime dependencies of the notifier
+    :versions: []
+    :when: 2021-04-14 17:34:35.248600000 Z
+- - :ignore_group
+  - coverage
+  - :who: Steve
+    :why: Group does not include runtime dependencies of the notifier
+    :versions: []
+    :when: 2021-04-14 17:34:35.843103000 Z
+- - :ignore_group
+  - rubocop
+  - :who: Steve
+    :why: Group does not include runtime dependencies of the notifier
+    :versions: []
+    :when: 2021-04-14 17:34:36.423089000 Z

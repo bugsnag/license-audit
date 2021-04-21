@@ -60,7 +60,7 @@
     :why: Python Software Foundation License (https://en.wikipedia.org/wiki/Python_Software_Foundation_License) - BSD style
     :versions: []
     :when: 2019-12-09 16:00:00.000000000 Z
-  
+
 # Aliases and combinations
 - - :permit
   - "(Unlicense OR Apache-2.0)"
@@ -170,3 +170,10 @@
     :why: 'Alias: Public Domain'
     :versions: []
     :when: 2019-12-09 12:00:00.000000000 Z
+
+- - :permit
+  - "CC-BY-4.0"
+  - :who: Steve
+    :why: 'Allows commercial use and distribution'
+    :versions: []
+    :when: 2021-04-21 12:00:00.000000000 Z

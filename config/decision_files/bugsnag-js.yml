@@ -4,3 +4,28 @@
     :why: "MIT licensed, just no LICENSE file on Github"
     :versions: ['2.15.0']
     :when: 2019-''07-02 07:23:26.514774000 Z
+- - :approve
+  - "spdx-exceptions"
+  - :who: Tom
+    :why: License audit tool required through lerna - Creative Commons 3.0
+    :versions: []
+    :when: 2020-04-21 16:00:00.000000000 Z
+- - :approve
+  - "spdx-license-ids"
+  - :who: Steve
+    :why: License audit tool required through lerna - Creative Commons 3.0
+    :versions: []
+    :when: 2021-04-21 16:00:00.000000000 Z
+- - :approve
+  - "getenv"
+  - :who: Steve
+    :why: MIT licensed but repo has a LICENSE.md instead of LICENSE file
+    :versions: []
+    :when: 2021-04-21 16:00:00.000000000 Z
+- - :approve
+  - "xmldom"
+  - :who: Steve
+    :why: For this version you can choose either MIT or LGPL.  Latest version is solely MIT.
+    :versions: ['0.1.31']
+    :when: 2021-04-21 16:00:00.000000000 Z
+

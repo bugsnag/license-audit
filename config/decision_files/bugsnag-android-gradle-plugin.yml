@@ -1,0 +1,6 @@
+- - :approve
+  - okio
+  - :who: Alex
+    :why: "Not detected by tool - Apache License 2.0 (https://github.com/square/okio/blob/parent-2.7.0/LICENSE.txt)"
+    :versions: ['2.7.0']
+    :when: 2021-04-29 17:07:00.000000000 Z

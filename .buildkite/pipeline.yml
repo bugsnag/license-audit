@@ -3,7 +3,7 @@ steps:
     if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
-      - docker-compose#v3.7.0:
+      - docker-compose#v3.9.0:
           run: ruby
           env:
             - recent=2
@@ -15,7 +15,7 @@ steps:
     if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
-      - docker-compose#v3.7.0:
+      - docker-compose#v3.9.0:
           run: php
           env:
             - recent=2
@@ -27,7 +27,7 @@ steps:
     if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
-      - docker-compose#v3.7.0:
+      - docker-compose#v3.9.0:
           run: js
           env:
             - recent=2
@@ -39,7 +39,7 @@ steps:
     if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
-      - docker-compose#v3.7.0:
+      - docker-compose#v3.9.0:
           run: java
           env:
             - recent=2
@@ -51,7 +51,7 @@ steps:
     if: build.env("FULL_BUILD") == "true"
     timeout_in_minutes: 240
     plugins:
-      - docker-compose#v3.7.0:
+      - docker-compose#v3.9.0:
           run: python
           env:
             - recent=2

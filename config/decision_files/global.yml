@@ -93,6 +93,12 @@
     :versions: []
     :when: 2019-07-04 09:52:26.269207000 Z
 - - :permit
+  - "2-clause BSDL"
+  - :who: Steve
+    :why: 'Same as BSD'
+    :versions: []
+    :when: 2023-30-05 13:52:56.786616000 Z
+- - :permit
   - "(BSD-2-Clause OR MIT OR Apache-2.0)"
   - :who: Mark
     :why: 'Alias: MIT'

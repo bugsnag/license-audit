@@ -194,3 +194,9 @@
     :why: 'Alias: Public Domain'
     :versions: []
     :when: 2019-12-09 12:00:00.000000000 Z
+- - :permit
+  - "BSD Zero Clause License"
+  - :who: Tom
+    :why: 'Alias: BSD / ISC'
+    :versions: []
+    :when: 2024-05-07 12:00:00.000000000 Z

@@ -16,4 +16,10 @@
     :why: For this version you can choose either MIT or LGPL.  Latest version is solely MIT.
     :versions: ['0.1.31']
     :when: 2021-04-21 16:00:00.000000000 Z
+- - :approve
+  - "sax"
+  - :who: Tom
+    :why: BlueOak license still under discussion by Security, but this is used in React Native dependencies and so we can't avoid
+    :versions: ['1.6.0']
+    :when: 2026-04-22 13:00:00.000000000 Z
 

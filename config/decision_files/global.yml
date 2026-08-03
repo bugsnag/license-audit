@@ -61,6 +61,12 @@
     :versions: []
     :when: 2019-12-09 16:00:00.000000000 Z
 - - :permit
+  - "Python-2.0"
+  - :who: Priyanka
+    :why: Python-2.0 (PSF License) - BSD-style permissive license, alias of Python Software Foundation License
+    :versions: []
+    :when: 2026-08-03 13:00:00.000000000 Z
+- - :permit
   - "CC0-1.0"
   - :who: Steve
     :why: 'Allows commercial use and distribution'

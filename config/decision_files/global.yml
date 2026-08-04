@@ -103,7 +103,7 @@
   - :who: Steve
     :why: 'Same as BSD'
     :versions: []
-    :when: 2023-30-05 13:52:56.786616000 Z
+    :when: 2023-05-30 13:52:56.786616000 Z
 - - :permit
   - "(BSD-2-Clause OR MIT OR Apache-2.0)"
   - :who: Mark

@@ -20,6 +20,6 @@
   - "sax"
   - :who: Tom
     :why: BlueOak license still under discussion by Security, but this is used in React Native dependencies and so we can't avoid
-    :versions: ['1.6.0']
+    :versions: ['1.6.0', '1.6.1']
     :when: 2026-04-22 13:00:00.000000000 Z
 
